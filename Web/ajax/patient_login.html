@@ -1,0 +1,66 @@
+<html>
+<head>
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="patient_login.css">
+</head>
+<body>
+    <div class="logBox">
+        <h2>用户登录</h2>
+        <div class="rows">
+            <span>手机号：</span><input id="user_num" onblur="checkNum()" type="text">
+            <p id="msg1"></p>
+        </div>
+        <div class="rows">
+            <span>密码：</span><input id="pwd" onblur="checkPwd()" type="text">
+            <p id="msg2"></p>
+        </div>
+        <button onclick="patientLog()">登录</button>
+        <div id="logRes"></div>
+    </div>
+
+    
+    <script>
+        function patientLog(){
+            // 1.创建异步对象
+            var xhr=new XMLHttpRequest();
+            console.log(xhr);
+            // 4.绑定监听，获取响应
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState==4 && xhr.status==200){
+                    var resTxt=xhr.responseText;
+                    logRes.innerHTML=resTxt;
+                    // console.log(resTxt);
+                }
+            }            
+            var url=`/patient/login?user_num=${user_num.value}&pwd=${pwd.value}`;
+            // 3.打开连接，创建请求
+            xhr.open("get",url,true);
+            
+            // 4.发送请求
+            xhr.send(null);
+        } 
+        function checkNum(){
+            if(!user_num.value){
+                msg1.innerHTML='手机号码不能为空！';
+            }else{
+                if(user_num.value.length!=11){
+                    msg1.innerHTML='手机号码长度不正确！';
+                }else{
+                    msg1.innerHTML='';
+                }
+            }
+        }
+        function checkPwd(){
+            if(!pwd.value){
+                msg2.innerHTML='密码不能为空！';
+            }else{
+                if(pwd.value.length<6||pwd.value.length>18){
+                    msg2.innerHTML='请输入正确的密码长度：6~18';
+                }else{
+                    msg2.innerHTML='';
+               }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<html>
+<head>
+    <title>注册</title>
+    <style>
+        
+    </style>
+    <link rel="stylesheet" type="text/css" href="patient_regist.css">
+</head>
+<body>
+    <div class="regBox">
+        <h2>用户注册</h2>
+        <div class="rows">
+            <span>*姓 名：</span><input id="name" onblur="checkName()" type="text">
+            <p id="msg1"></p>
+        </div>
+        <div class="rows">
+            <span>*手机号：</span><input id="user_num" onblur="checkNum()" type="text">
+            <p id="msg2"></p>
+        </div>
+        <div class="rows">
+            <span>*身份证号：</span><input id="card_num" onblur="checkCard()" type="text">
+            <p id="msg3"></p>
+        </div>
+        <div class="rows">
+            <span>*设置密码：</span><input id="pwd" onblur="checkPwd()" type="text">
+            <p id="msg4"></p>
+        </div>
+        <div class="rows">
+            <span>*确认密码：</span><input id="pwdSur" onblur="ispwdSur()" type="password">
+            <p id="msg5"></p>
+        </div>
+        <button onclick="patientReg()">注册</button>
+        <div id="regRes"></div>
+    </div>
+
+    
+    <script>
+        function patientReg(){
+            // 1.创建异步对象
+            var xhr=new XMLHttpRequest();
+            // console.log(xhr);
+            // 4.绑定监听，获取响应
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState==4 && xhr.status==200){
+                    var resTxt=xhr.responseText;
+                    regRes.innerHTML=resTxt;
+                    console.log(resTxt);
+                }
+            }
+            // 2.打开连接，创建请求
+            xhr.open('post','/patient/regist',true);
+            // 3.1设置请求头主体。设置提交给服务器的数据类型（文本、文件）
+            xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+                // application/x-www-form-urlencoded 允许提交任意字符给服务器
+            // 3.2创建请求主体并进行赋值
+            var formdata=`name=${name.value}&user_num=${user_num.value}&card_num=${card_num.value}&pwd=${pwd.value}`;
+            // console.log(formdata);
+            // 3.3发送请求主体
+            xhr.send(formdata);
+        } 
+        function checkName(){
+            if(!name.value){
+                msg1.innerHTML='用户名不能为空！';
+            }else{
+                msg1.innerHTML=' ';
+            }
+        }
+        function checkNum(){
+            if(!user_num.value){
+                msg2.innerHTML='手机号码不能为空！';
+            }else{
+                if(user_num.value.length!=11){
+                    msg2.innerHTML='手机号码长度不正确！';
+                }else{
+                    msg2.innerHTML='';
+                }
+            }
+        }
+        function checkCard(){
+            if(!card_num.value){
+                msg3.innerHTML='身份证号不能为空！';
+            }else{
+                if(card_num.value.length!=18){
+                    msg3.innerHTML='身份证号码长度不正确！';
+                }else{
+                    msg3.innerHTML=`<img src="">`;
+                }
+            }
+        }
+        function checkPwd(){
+            if(!pwd.value){
+                msg4.innerHTML='密码不能为空！';
+            }else{
+                if(pwd.value.length<6||pwd.value.length>18){
+                    msg4.innerHTML='请输入正确的密码长度：6~18';
+                }else{
+                    msg4.innerHTML='';
+                }
+            }
+        }
+        function ispwdSur(){
+            if(pwd.value!==pwdSur.value){
+                msg5.innerHTML='两次密码不一致，请重新输入！';
+            }else{
+                msg5.innerHTML='';
+            }
+        }
+    </script>
+</body>
+</html>

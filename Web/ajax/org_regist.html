@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>诊所注册</title>
+</head>
+<body>
+    <div class="org_regbox">
+        <h2>诊所注册</h2>
+        <div class="rows">
+            <span>诊所名称：</span><input id="name" onblur="checkOName()" type="text">
+            <p id="msg1"></p>
+        </div>
+        <div class="rows">
+            <span>联系人：</span><input id="legal_preson" onblur="checkName()" type="text" placeholder="请输入管理者姓名">
+            <p id="msg2"></p>
+        </div>
+        <div class="rows">
+            <span>手机号：</span><input id="phone" onblur="checkPhone()" type="text">
+            <p id="msg3"></p>
+        </div>
+        <!-- <div class="rows">
+            <span>验证码：</span><input id="name" onblur="checkName()" type="text">
+            <p id="msg1"></p>
+        </div> -->
+
+        <button onclick="orgReg()">注册</button>
+        <div id="regRes"></div>
+
+        <script>
+            function orgReg(){
+                var xhr=new XMLHttpRequest();
+                console.log(xhr);
+                xhr.onreadystatechange=function(){
+                    if(xhr.readyState==4 && xhr.status==200){
+                        var result=xhr.responseText;
+                        console.log(result);
+                    }
+                }
+                xhr.open('post','/org/reg',true);
+                xhr.send();
+            }
+        </script>
+    </div>
+</body>
+</html>
