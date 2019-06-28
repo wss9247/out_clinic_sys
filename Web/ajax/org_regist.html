@@ -1,16 +1,17 @@
 <html>
 <head>
     <title>诊所注册</title>
+    <link rel="stylesheet" href="org_log_reg.css">
 </head>
 <body>
-    <div class="org_regbox">
+    <div class="regbox">
         <h2>诊所注册</h2>
         <div class="rows">
-            <span>诊所名称：</span><input id="name" onblur="checkOName()" type="text">
+            <span>诊所名称：</span><input id="Orgname" onblur="checkName()" type="text">
             <p id="msg1"></p>
         </div>
         <div class="rows">
-            <span>联系人：</span><input id="legal_preson" onblur="checkName()" type="text" placeholder="请输入管理者姓名">
+            <span>联系人：</span><input id="legal_preson" onblur="checklegal()" type="text" placeholder="请输入管理者姓名">
             <p id="msg2"></p>
         </div>
         <div class="rows">
@@ -21,11 +22,21 @@
             <span>验证码：</span><input id="name" onblur="checkName()" type="text">
             <p id="msg1"></p>
         </div> -->
-
         <button onclick="orgReg()">注册</button>
         <div id="regRes"></div>
 
         <script>
+            
+            function checkPhone(){
+                var reg=/^1[3-8]\d{9}$/;
+                var arr=phone.value.match(reg);
+                console.log(arr);
+                if(arr==null){
+                    msg3.innerHTML="请输入正确的手机号"
+                }else{
+                    msg3.innerHTML=""; 
+                };
+            }
             function orgReg(){
                 var xhr=new XMLHttpRequest();
                 console.log(xhr);
@@ -34,10 +45,15 @@
                         var result=xhr.responseText;
                         console.log(result);
                     }
-                }
+                }                
                 xhr.open('post','/org/reg',true);
-                xhr.send();
+                // 3.1设置请求头主体。设置提交给服务器的数据类型（文本、文件）
+                xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+                var formdata=`name=${Orgname.value}&legal_preson=${legal_preson.value}&phone=${phone.value}`;
+                xhr.send(formdata);
             }
+            function checkName(){}
+            function checklegal(){}
         </script>
     </div>
 </body>

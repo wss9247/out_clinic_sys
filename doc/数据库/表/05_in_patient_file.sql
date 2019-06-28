@@ -2,7 +2,7 @@ use out_clinic_sys;
 create table in_patient_file(
     in_patient_file_id int primary key auto_increment comment '病人编号',
     name varchar(10) not null comment '姓名',
-    pwd varchar(18) not null comment '密码',
+    pwd varchar(12) not null comment '密码',
     user_num char(11) unique not null comment '手机号（登录名）',
     sex bool default 0 comment '性别：0男，1女',
     card_num char(18) unique not null comment '身份证号',

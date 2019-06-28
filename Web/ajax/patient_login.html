@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>登录</title>
-    <link rel="stylesheet" type="text/css" href="patient_login.css">
+    <link rel="stylesheet" type="text/css" href="patient_log_reg.css">
 </head>
 <body>
     <div class="logBox">
@@ -50,17 +50,16 @@
                 }
             }
         }
+        
         function checkPwd(){
-            if(!pwd.value){
-                msg2.innerHTML='密码不能为空！';
-            }else{
-                if(pwd.value.length<6||pwd.value.length>18){
-                    msg2.innerHTML='请输入正确的密码长度：6~18';
-                }else{
-                    msg2.innerHTML='';
-               }
+            msg2.innerHTML="";
+            var reg=/^\w{6,12}$/;
+            var arr=pwd.value.match(reg);
+            if(arr==null){
+                msg2.innerHTML="请输入正确的密码格式";
             }
         }
+
     </script>
 </body>
 </html>

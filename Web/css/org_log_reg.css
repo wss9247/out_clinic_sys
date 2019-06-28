@@ -7,7 +7,8 @@ body{
     background-image:linear-gradient(#82d2e9,#8e7db3);
     
 }
-.logBox{
+.logBox,
+.regbox{
     width:350px;
     background:#fff;
     border-radius:5px;
@@ -18,18 +19,21 @@ body{
     left:50%;
     margin-left:-175px;
 }
-.logBox h2{
+.logBox h2,
+.regbox h2{
     text-align:center;
     font-size:20px;
     padding-right:55px;
 }
-.logBox .rows{
+.logBox .rows,
+.regbox .rows{
     width:350px;
     height:30px;
     position:relative;
     margin-top:20px;
 }
-.logBox .rows p{
+.logBox .rows p,
+.regbox .rows p{
     height:30px;
     line-height:30px;
     text-align:right;
@@ -38,18 +42,21 @@ body{
     right:0;
     bottom:0;
 }
-.logBox span{
+.logBox span,
+.regbox span{
     display:inline-block;
     width:60px;
     text-align:justify;
 }        
-.logBox input{
+.logBox input,
+.regbox input{
     width:290px;height:30px;
     border:none;
     border-bottom:1px dotted #aaa;
     outline:none;
 }
-.logBox button{
+.logBox button,
+.regbox button{
     width:350px;height:48px;
     background:#694f99;
     color:#fff;
@@ -61,7 +68,8 @@ body{
     cursor:pointer;
     margin-top:20px;
 }        
-.logBox #logRes{
+.logBox #logRes,
+.regbox #regRes{
     height:30px;
     color:#f00;
     font-size:14px;

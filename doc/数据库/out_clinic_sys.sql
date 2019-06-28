@@ -29,7 +29,7 @@ create table employee(
     id smallint primary key auto_increment comment '职员编号',
     name varchar(10) not null comment '职员姓名',
     staff_num char(11) unique not null comment '职员登录名：常用员工手机号',
-    pwd varchar(18) not null comment '密码：不超过18位',
+    pwd varchar(12) not null comment '密码：不超过12位',
     sex bool default 0 comment '性别：0-男，1-女',
     card_num char(18) unique not null comment '身份证号',
     caritify_type tinyint comment '执业类别',
@@ -47,7 +47,7 @@ create table relation_dept_emp(
 create table in_patient_file(
     in_patient_file_id int primary key auto_increment comment '病人编号',
     name varchar(10) not null comment '姓名',
-    pwd varchar(18) not null comment '密码',
+    pwd varchar(12) not null comment '密码',
     user_num char(11) unique not null comment '手机号（登录名）',
     sex bool default 0 comment '性别：0男，1女',
     card_num char(18) unique not null comment '身份证号',
