@@ -1,11 +1,13 @@
 <html>
+
 <head>
     <title>注册</title>
     <style>
-        
+
     </style>
     <link rel="stylesheet" type="text/css" href="patient_log_reg.css">
 </head>
+
 <body>
     <div class="regBox">
         <h2>用户注册</h2>
@@ -23,7 +25,7 @@
         </div>
         <div class="rows">
             <span>设置密码：</span><input id="pwd" onblur="checkPwd()" type="text">
-            <p id="msg4">可由字母、数字和_组成，长度6~12</p>
+            <p id="msg4">密码6~12位，可以是数字、字母或_</p>
         </div>
         <div class="rows">
             <span>确认密码：</span><input id="pwdSur" onblur="ispwdSur()" type="password">
@@ -33,54 +35,57 @@
         <div id="regRes"></div>
     </div>
 
-    
+
     <script>
-        function patientReg(){
+        function patientReg() {
             // 1.创建异步对象
-            var xhr=new XMLHttpRequest();
+            var xhr = new XMLHttpRequest();
             // console.log(xhr);
             // 4.绑定监听，获取响应
-            xhr.onreadystatechange=function(){
-                if(xhr.readyState==4 && xhr.status==200){
-                    var resTxt=xhr.responseText;
-                    regRes.innerHTML=resTxt;
-                    console.log(resTxt);
+            xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var resTxt = xhr.responseText;
+                        regRes.innerHTML = resTxt;
+                        console.log(resTxt);
+                    }
                 }
-            }
-            // 2.打开连接，创建请求
-            xhr.open('post','/patient/regist',true);
+                // 2.打开连接，创建请求
+            xhr.open('post', '/patient/regist', true);
             // 3.1设置请求头主体。设置提交给服务器的数据类型（文本、文件）
-            xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-                // application/x-www-form-urlencoded 允许提交任意字符给服务器
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            // application/x-www-form-urlencoded 允许提交任意字符给服务器
             // 3.2创建请求主体并进行赋值
-            var formdata=`name=${name.value}&user_num=${user_num.value}&card_num=${card_num.value}&pwd=${pwd.value}`;
+            var formdata = `name=${name.value}&user_num=${user_num.value}&card_num=${card_num.value}&pwd=${pwd.value}`;
             // console.log(formdata);
             // 3.3发送请求主体
             xhr.send(formdata);
-        } 
-        function checkName(){
-            msg1.innerHTML="";
-            if(!name.value){
-                msg1.innerHTML='用户名不能为空！';
+        }
+
+        function checkName() {
+            msg1.innerHTML = "";
+            if (!name.value) {
+                msg1.innerHTML = "用户名不能为空！";
             }
         }
-        function checkNum(){
-            msg2.innerHTML="";
-            var reg=/^1[3-8]\d{9}$/;
-            var arr=user_num.value.match(reg);
+
+        function checkNum() {
+            msg2.innerHTML = "";
+            var reg = /^1[3-8]\d{9}$/;
+            var arr = user_num.value.match(reg);
             console.log(arr);
-            if(arr==null){
-                msg2.innerHTML="请输入正确的手机号"
+            if (arr == null) {
+                msg2.innerHTML = "格式错误，请重新输入！"
             }
         }
-        function checkCard(){
-            msg3.innerHTML="";
+
+        function checkCard() {
+            msg3.innerHTML = "";
             // 使用正则表达式验证
-            var reg=/^\d{15}(\d\d[0-9x])?$/i;
-            var arr=card_num.value.match(reg);
+            var reg = /^\d{15}(\d\d[0-9x])?$/i;
+            var arr = card_num.value.match(reg);
             console.log(arr);
-            if(arr==null){
-                msg3.innerHTML="请输入正确的身份证号";
+            if (arr == null) {
+                msg3.innerHTML = "格式错误，请重新输入！";
             }
 
             // if(!card_num.value){
@@ -93,20 +98,23 @@
             //     }
             // }
         }
-        function checkPwd(){
-            msg4.innerHTML="";
-            var reg=/^\w{6,12}$/;
-            var arr=pwd.value.match(reg);
-            if(arr==null){
-                msg4.innerHTML="请输入正确的密码格式";
+
+        function checkPwd() {
+            msg4.innerHTML = "";
+            var reg = /^\w{6,12}$/;
+            var arr = pwd.value.match(reg);
+            if (arr == null) {
+                msg4.innerHTML = "格式错误，请重新输入！";
             }
         }
-        function ispwdSur(){
-            msg5.innerHTML='';
-            if(pwd.value!==pwdSur.value){
-                msg5.innerHTML='两次密码不一致，请重新输入！';
+
+        function ispwdSur() {
+            msg5.innerHTML = '';
+            if (pwd.value !== pwdSur.value) {
+                msg5.innerHTML = '两次密码不一致，请重新输入！';
             }
         }
     </script>
 </body>
+
 </html>

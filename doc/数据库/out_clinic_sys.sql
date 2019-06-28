@@ -1,7 +1,7 @@
 
 set names utf8;
 drop database if exists out_clinic_sys;
-create database  out_clinic_sys charset=utf8;
+create database out_clinic_sys charset=utf8;
 
 use  out_clinic_sys;
 -- 机构表
