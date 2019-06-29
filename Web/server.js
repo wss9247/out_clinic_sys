@@ -13,6 +13,7 @@ server.use(express.static('public'));
 server.use(express.static('ajax'));
 server.use(express.static('css'));
 server.use(express.static('images'));
+server.use(express.static('js'));
 server.use(bodyparser.urlencoded({
     extended:false
 }));

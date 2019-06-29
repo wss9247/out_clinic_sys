@@ -1,0 +1,58 @@
+*{
+    font:13px "Micorsoft Yahei";
+    margin:0;
+    padding:0;
+}
+
+.header.navbar{
+    display:block;
+    border-bottom:1px solid #ddd;
+    /* position:absolute;
+    top:0;
+    left:0; */
+}
+/* 网站logo */
+.header.navbar .navbar-brand{
+    position:absolute;
+    left:1.2rem;
+    top:0.7rem;
+}
+.navbar-brand:hover, .navbar-brand:focus {
+  color:#333;
+}
+/* 面包屑导航 */
+.header .breadcrumb{ 
+    float:right;   
+  background-color:transparent;margin-bottom:0;
+}
+.header .breadcrumb-item + .breadcrumb-item::before {
+  content: "|";
+  display: inline-block;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  color: #6c757d;
+}
+.header .breadcrumb a{
+    color:#333;
+    text-decoration:none;
+}
+/* 折叠导航 */
+.header .navbar-collapse{
+    margin-top:0.5rem;
+    margin-left:1rem;
+    border:1px solid #ddd;
+  }
+.header .navbar-collapse .navbar-nav{
+    padding-left:2.3rem;
+}
+.header .navbar-collapse img{
+    margin-right:0.3rem;
+}
+.navbar-toggler-icon {
+  width: 0;
+  height: 0;
+  border:4px solid transparent;
+  border-bottom:4px solid #666;
+  border-right:4px solid #666;
+  margin-top:3px;
+}
