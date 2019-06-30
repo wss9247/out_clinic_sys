@@ -1,0 +1,29 @@
+* {
+    font: 12px "Micorsoft Yahei";
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #eee;
+}
+
+.workspacing {
+    margin: 0 1.5rem;
+}
+
+.workspacing .col-2 {
+    padding-left: 0;
+    padding-right: 0.5rem;
+}
+
+.workspacing .col-4 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.workspacing .col-2 .box,
+.workspacing .col-4 .nav {
+    border-radius: 3px;
+    background: #fff;
+}
