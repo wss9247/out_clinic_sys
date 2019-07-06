@@ -1,29 +1,173 @@
 * {
-    font: 12px "Micorsoft Yahei";
+    font: 13px "Micorsoft Yahei";
     margin: 0;
     padding: 0;
+    color:#333;
 }
 
 body {
-    background: #eee;
+    background: #f3f3f3;
 }
 
 .workspacing {
     margin: 0 1.5rem;
 }
-
-.workspacing .col-2 {
-    padding-left: 0;
-    padding-right: 0.5rem;
+/* 顶部搜索框+日期 */
+.workspacing .top{
+    margin:2rem 0;
 }
-
-.workspacing .col-4 {
+/* 快捷菜单导航 */
+.workspacing .menu .col-2 {
+    padding-left: 0;
+    padding-right: 0.8rem;
+    margin-bottom:0.8rem;
+}
+.workspacing .menu .col-4 {
     padding-left: 0;
     padding-right: 0;
+    margin-bottom:0.8rem;
 }
 
-.workspacing .col-2 .box,
-.workspacing .col-4 .nav {
-    border-radius: 3px;
+.workspacing .menu .col-2 .box,
+.workspacing .menu .col-4 .nav {
+    border-radius: 6px;
     background: #fff;
+    padding:2rem 1.5rem;
+}
+.workspacing .menu .col-2 .box a,
+.workspacing .menu .col-4 .nav-item{
+    display:block;
+    height:70px;
+}
+.workspacing .menu .col-2 .box a{
+    color:#333;text-decoration: none;
+}
+.workspacing .menu .col-2 .box a span{
+    display:inline-block;
+    font-size:2rem;
+    margin-bottom:0.5rem;
+    color:#007bff;
+}
+.workspacing .menu .col-4 .nav .nav-item .nav-link{
+    width:70px;height:70px;
+    text-align:center;
+    overflow:hidden;
+    padding:0;
+    background:url(icons/calendar_add_48px.png) no-repeat left top;
+}
+/* 右侧图片导航：使用精灵图 */
+.workspacing .menu .col-4 .nav .nav-item .nav-link p1{
+    background-position:left top;
+}
+.workspacing .menu .col-4 .nav .nav-item .nav-link p2{
+    background-position:left top;
+}
+.workspacing .menu .col-4 .nav .nav-item .nav-link p3{
+    background-position:left top;
+}
+.workspacing .menu .col-4 .nav .nav-item .nav-link p4{
+    background-position:left top;
+}
+
+.workspacing .menu .col-4 .nav .nav-item a span{
+    display:none;
+    width:70px;height:70px;
+    color:#fff;font-size:1.2rem;
+    padding:1rem;background:#258ff1;
+    border-radius:50%;
+}
+.workspacing .menu .col-4 .nav .nav-item a:hover span{
+    display:block;
+}
+
+/* 选项卡主体区域 */
+/* 上部分 */
+.workspacing .contain .nav-tabs.menu-tab{
+    background:#258ff1;
+    padding-top:1rem;padding-left:1rem;
+    border-top-right-radius:6px;
+    border-top-left-radius:6px;
+}
+.workspacing .contain .menu-tab .nav-item + .nav-item::before{
+    content: "|";
+    color:#fff;
+    display:inline-block;
+}
+.workspacing .contain .menu-tab .nav-link{
+    display:inline-block;
+    padding:0.8rem 2.5rem;
+    font-weight:bold;color:#fff;
+    border:none;
+}
+.workspacing .contain .menu-tab .nav-link span{
+    color:#fff;
+}
+
+.workspacing .contain .menu-tab .nav-link.active{
+    color:#333;
+    margin:0 -3px;
+}
+.workspacing .contain .menu-tab .nav-link.active span{
+    color:#333;
+}
+.workspacing .contain .nav-tabs .nav-link:hover,
+.workspacing .contain .nav-tabs .nav-link:focus {
+  border-color:transparent;
+}
+
+/* 下部分-今日就诊 */
+.workspacing .contain .tab-content{
+    border:1px solid #ccc;
+    border-top:none;
+    background:#fff;
+}
+/* .workspacing .contain #tab1 table{
+    display:block;
+    margin: 0 5px;
+}
+.workspacing .contain #tab1 th,
+.workspacing .contain #tab1 td{
+    padding: 1rem;
+    border:1px solid #b9dbea;
+}
+.workspacing .contain #tab1 th{
+    background:#eee;
+    font-weight:bold;
+    border-top:none;
+}
+.workspacing .contain #tab1 td{
+    padding-top:0.7rem;padding-bottom:0.7rem;
+}
+
+.workspacing .contain #tab1 .pageNav{
+    overflow:hidden;
+}
+.workspacing .contain #tab1 .pageNav ul{
+    float:right;
+    margin-right:2rem;
+} */
+.workspacing .contain table{
+    display:block;
+    margin: 0 5px;
+}
+.workspacing .contain th,
+.workspacing .contain td{
+    padding: 1rem;
+    border:1px solid #b9dbea;
+}
+.workspacing .contain th{
+    background:#eee;
+    font-weight:bold;
+    border-top:none;
+}
+.workspacing .contain td{
+    padding-top:0.7rem;padding-bottom:0.7rem;
+}
+
+.workspacing .contain .pageNav{
+    overflow:hidden;
+}
+.workspacing .contain .pageNav ul{
+    float:right;
+    margin-right:2rem;
 }
