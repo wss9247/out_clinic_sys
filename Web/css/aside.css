@@ -5,23 +5,45 @@
 }
 .aside{
     width:100px;
-    background:#c0d4ee;
+    background:#23426b;
 }
 
 .aside .nav-item{
     width:100px;
     text-align:center;
     height:99px;
-    border-bottom:1px solid #92aed6;
+    border-bottom:1px solid #233854;
 }
 .aside .nav-item a{
     /* display:block; */
-    color:#333;
+    color:#85acd1;
     font-weight:blod;
 }
-.aside .nav-item a img{
+/* 精灵图 */
+.aside .nav-item a b{
+    display:inline-block;
+    width:24px;height:24px;
+    background:url("icons/aside-icon.png") no-repeat left top;
     margin:1rem auto;
 }
+.aside .nav-item:nth-child(2) a b{
+    background-position:-24px top;
+}
+.aside .nav-item:nth-child(3) a b{
+    background-position:-48px top;
+}
+.aside .nav-item:nth-child(4) a b{
+    background-position:-72px top;
+}
+.aside .nav-item:nth-child(5) a b{
+    background-position:-96px top;
+}
+.aside .nav-item:nth-child(6) a b{
+    background-position:-120px top;
+}
+/* .aside .nav-item a img{
+    margin:1rem auto;
+} */
 .aside .nav-item.active,
 .aside .nav-item:hover{
     background:#258ff1;
@@ -34,15 +56,21 @@
 .aside .navbar{
     position:relative;
 }
+.aside .navbar .navbar-toggler{
+    color:#85acd1;
+}
+.aside .navbar .navbar-toggler:hover{
+    color:#fff;
+}
 .aside .navbar-toggler-icon {
   width: 0;
   height: 0;
   border:4px solid transparent;
-  border-left:4px solid #333;
+  border-left:4px solid #85acd1;
   margin-top:-3px;
 }
 .aside .navbar-collapse{
     position:absolute;
     bottom:0;left:100px;
-    background:rgba(192,212,238,0.8);    
+    background:#23426b;
 }

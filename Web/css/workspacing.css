@@ -53,20 +53,17 @@ body {
     text-align:center;
     overflow:hidden;
     padding:0;
-    background:url(icons/calendar_add_48px.png) no-repeat left top;
+    background:url(icons/workspacing-icon.png) no-repeat left top;
 }
 /* 右侧图片导航：使用精灵图 */
-.workspacing .menu .col-4 .nav .nav-item .nav-link p1{
-    background-position:left top;
+.workspacing .menu .col-4 .nav .nav-item:nth-child(2) .nav-link{
+    background-position:-70px top;
 }
-.workspacing .menu .col-4 .nav .nav-item .nav-link p2{
-    background-position:left top;
+.workspacing .menu .col-4 .nav .nav-item:nth-child(3) .nav-link{
+    background-position:-140px top;
 }
-.workspacing .menu .col-4 .nav .nav-item .nav-link p3{
-    background-position:left top;
-}
-.workspacing .menu .col-4 .nav .nav-item .nav-link p4{
-    background-position:left top;
+.workspacing .menu .col-4 .nav .nav-item:nth-child(4) .nav-link{
+    background-position:-210px top;
 }
 
 .workspacing .menu .col-4 .nav .nav-item a span{
@@ -87,6 +84,7 @@ body {
     padding-top:1rem;padding-left:1rem;
     border-top-right-radius:6px;
     border-top-left-radius:6px;
+    border-bottom:none;
 }
 .workspacing .contain .menu-tab .nav-item + .nav-item::before{
     content: "|";
@@ -117,7 +115,6 @@ body {
 
 /* 下部分-今日就诊 */
 .workspacing .contain .tab-content{
-    border:1px solid #ccc;
     border-top:none;
     background:#fff;
 }
@@ -148,7 +145,7 @@ body {
 } */
 .workspacing .contain table{
     display:block;
-    margin: 0 5px;
+    padding:3px;
 }
 .workspacing .contain th,
 .workspacing .contain td{
@@ -156,9 +153,9 @@ body {
     border:1px solid #b9dbea;
 }
 .workspacing .contain th{
-    background:#eee;
+    background:#f2f2f2;
     font-weight:bold;
-    border-top:none;
+    text-align:center;
 }
 .workspacing .contain td{
     padding-top:0.7rem;padding-bottom:0.7rem;
