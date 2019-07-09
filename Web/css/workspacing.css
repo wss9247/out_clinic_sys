@@ -16,6 +16,20 @@ body {
 .workspacing .top{
     margin:2rem 0;
 }
+.workspacing .top input{
+    border:1px solid #ddd;
+    padding:0.35rem 0.6rem;
+    margin-right:5px;
+}
+.workspacing .right input{
+    width:300px;
+}
+.workspacing .top button{
+    border:none;
+    padding:0.5rem 1rem;
+    background:#258ff1;
+    border-radius:3px;color:#fff;
+}
 /* 快捷菜单导航 */
 .workspacing .menu .col-2 {
     padding-left: 0;
