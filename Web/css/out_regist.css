@@ -20,35 +20,23 @@ body {
 }
 .outRegist .contain .menu-tab .nav-item .nav-link{
     display:inline-block;
-    padding:0.7rem 2.5rem;
+    padding:0.6rem 2.5rem;
     color:#666;
-    border:1px solid #d5d5d5;
+    margin-right:2px;
     font-size:15px;
-    background-image:linear-gradient(#fff,#f5f5f5);
+    background-image:linear-gradient(#eee,#d5d5d5);
+    border:1px solid #ccc;
+    border-radius:3px;
 }
-.outRegist .contain .menu-tab .nav-item:first-child .nav-link{
-    border-radius:0;
-    border-top-left-radius:6px;
-    border-bottom-left-radius:6px;
-}
-.outRegist .contain .menu-tab .nav-item:last-child .nav-link{
-    border-radius:0;
-    border-top-right-radius:6px;
-    border-bottom-right-radius:6px;
-}
-.outRegist .contain .menu-tab .nav-link span{
-}
-
 .outRegist .contain .menu-tab .nav-link.active{    
-    border:1px solid #258ff1;
     color:#fff;
-    background-image:linear-gradient(#48a0fd,#258ff1);
-}
-.outRegist .contain .menu-tab .nav-link.active span{
+    background:#258ff1;
+    /* background-image:linear-gradient(#48a0fd,#258ff1); */
 }
 .outRegist .contain .nav-tabs .nav-link:hover,
 .outRegist .contain .nav-tabs .nav-link:focus {
-  border-color:#258ff1;
+    background:#92bce2;
+    color:#fff;
 }
 
 /* 下部分-今日就诊 */
@@ -73,7 +61,7 @@ body {
     padding-left:0.5rem;
     border-left:2px solid #258ff1;
 }
-.outRegist .contain #tab1 .form-inline div[class^="col"]{
+.outRegist .contain .form-inline div[class^="col"]{
     margin-bottom:10px;
 }
 .outRegist .contain #tab1 .form-inline label{
@@ -82,8 +70,10 @@ body {
 }
 .outRegist .contain #tab1 input,
 .outRegist .contain #tab1 select{
-    width:200px;height:30px;padding-left:10px;
-    border:1px solid #ddd;  
+    width:200px;height:30px;
+    /* padding-left:10px; */
+    padding:4px 0 4px 10px;
+    border:1px solid #ddd;
 }
 .outRegist .contain #tab1 input[type="radio"]{
     width:1.2rem;height:1.2rem;
@@ -97,13 +87,14 @@ body {
     width:34px;margin-right:2px;
 }
 /* 搜索按钮、提交按钮 */
-.outRegist .contain #tab1 .search,
+.outRegist .contain .search,
 .outRegist .contain #tab1 .submit{
     display:inline-block;
     width:50px;height:30px;margin-left:2px;border-radius:3px;
     color:#fff;text-align:center;line-height:30px;
     background:#258ff1;text-decoration: none;
     position:relative;top:-1px;
+    border:none;
 }
 .outRegist .contain #tab1 .submit{
     width:126px;height:40px;float:right;margin-right:20px;margin-top:20px;
@@ -119,14 +110,15 @@ body {
     text-decoration: none;
 }
 
-
-/* 下部分-登记列表 */
+/* 选项卡二-登记列表 */
 .outRegist .contain .tab-content .tab-pane#tab2{
     background:transparent;
+    /* position:relative; */
 }
 .outRegist .contain #tab2 input,
 .outRegist .contain #tab2 select{
-    width:200px;height:30px;padding-left:10px;
+    width:200px;height:30px;
+    padding:4px 0 4px 10px;
     border:1px solid #ddd;  
 }
 .outRegist .contain #tab2 input[type="date"]{
@@ -134,4 +126,66 @@ body {
 }
 .outRegist .contain .tab-content .searchBox{
     margin-top:1.5rem;
+    padding-bottom:1rem;
+}
+
+.outRegist .contain .regLists table{
+    display:block;
+    margin:-1px;
+}
+
+.outRegist .contain .regLists tr{
+    width:100%;
+    background:#fff;
+}
+.outRegist .contain .regLists tr.os{
+    background:#eef9fd;
+} 
+
+.outRegist .contain .regLists tr.selected{
+    background:#d2fdf3;
+}
+.outRegist .contain .regLists th,
+.outRegist .contain .regLists td{
+    padding: 1rem;
+    /* border:1px solid #b9dbea; */
+    border:1px solid #ddd;
+}
+.outRegist .contain .regLists th{
+    background:#e8e8e8;
+    font-weight:bold;
+    text-align:center;
+    width:1%;
+}
+.outRegist .contain .regLists th:nth-child(11){
+    width:1.5%;
+}
+.outRegist .contain .regLists th:last-child{
+    width:2%;
+}
+.outRegist .contain .regLists td:last-child{
+    text-align:center;
+}
+.outRegist .contain .regLists td{
+    padding-top:0.5rem;padding-bottom:0.5rem;
+}
+.outRegist .contain .regLists button{
+    display:inline-block;border:1px solid #aaa;
+    background-image:linear-gradient(#f1f1f1,#eee);
+    padding:3px 5px;margin:0 5px;
+    color:#000; border-radius:3px;
+}
+.outRegist .contain .regLists button.updBtn{
+    color:#fff;border-color:#258ff1;
+    background-image:linear-gradient(#7bc0ff,#258ff1);
+    /* color:#fff;border-color:#0a9410;
+    background-image:linear-gradient(#18b91f,#0a9410); */
+}
+/* 翻页 */
+.outRegist .contain .pages{
+    position:absolute;
+    left:1.5rem;
+    bottom:2rem;
+    overflow:hidden;
+    font-size:15px;
 }

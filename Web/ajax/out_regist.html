@@ -1,6 +1,6 @@
 <html>
-
 <head>
+    <title>患者登记</title>
     <!-- 引入boot文件 -->
     <link rel="stylesheet" href="bootstrap.css">
     <!-- <script src="../js/jquery.min.js"></script>
@@ -17,130 +17,247 @@
 <body>
     <div class="outRegist">
        <!-- 主体选项卡区域 -->
-       <div class="contain">
-        <ul class="nav nav-tabs menu-tab">
-            <li class="nav-item"><a href="#tab1" class="nav-link active" data-toggle="tab">患者登记</a></li>
-            <li class="nav-item"><a href="#tab2" class="nav-link " data-toggle="tab">登记列表</a></li>
-        </ul>
-        <div class="tab-content">
-            <!-- 患者登记 -->
-            <div class="tab-pane active" id="tab1">
-                <ul class="list-unstyled">
-                    <!-- 患者信息 -->
-                    <li>
-                        <h5>患者信息</h5>
+        <div class="contain">
+            <ul class="nav nav-tabs menu-tab">
+                <li class="nav-item"><a href="#tab1" class="nav-link active" data-toggle="tab">患者登记</a></li>
+                <li class="nav-item"><a href="#tab2" class="nav-link " data-toggle="tab">登记列表</a></li>
+            </ul>
+            <div class="tab-content">
+                <!-- 患者登记 -->
+                <div class="tab-pane active" id="tab1">
+                    <ul class="list-unstyled">
+                        <!-- 患者信息 -->
+                        <li>
+                            <h5>患者信息</h5>
+                            <div class="form-inline">
+                                <!-- 第一行 -->
+                                <div class="col-4">
+                                    患者姓名： <input type="text"><a class="search" href="">搜索</a>
+                                </div>
+                                <div class="col-4">
+                                    患者性别： <input id="sex1" checked type="radio" name="sex" value="0"><label for="sex1">男</label>
+                                    <input id="sex2" type="radio" name="sex" value="1"><label for="sex2">女</label>
+                                </div>
+                                <div class="col-4">
+                                    患者年龄： <input type="date"> <input type="text">岁
+                                </div>
+                                <!-- 第二行 -->                            
+                                <div class="col-4">
+                                    手机号码： <input type="text">
+                                </div>
+                                <div class="col-4">
+                                    挂号类别： <input id="regType1" checked type="radio" name="regType" value="0"><label for="regType1">直接挂号</label>
+                                    <input id="regType2" type="radio" name="regType" value="1"><label for="regType2">预约挂号</label>
+                                </div>
+                                <div class="col-4">
+                                    病历号码： <input type="text">
+                                </div>
+                            </div>
+                        </li>
+                        <!-- 诊前信息 -->
+                        <li>
+                            <h5>诊前信息</h5>
+                            <div class="form-inline">
+                                <!-- 第一行 -->
+                                <div class="col-6">
+                                    过敏史： 
+                                    <input id="allergies1" checked type="radio" name="allergies" value="0"><label for="allergies1">无</label>
+                                    <input id="allergies2" type="radio" name="allergies" value="1"><label for="allergies2">有</label>
+                                    <input disabled type="text" style="width:400px;">
+                                </div>
+                                <div class="col-6">
+                                    既往史： 
+                                    <input id="disHistory1" checked type="radio" name="disease_history" value="0"><label for="disHistory1">无</label>
+                                    <input id="disHistory2" type="radio" name="disease_history" value="1"><label for="disHistory2">有</label>
+                                    <input disabled type="text" style="width:400px;">
+                                </div>
+                            </div>
+                        </li>
+                        <!-- 就诊信息 -->
+                        <li>
+                            <h5>就诊信息</h5>
+                            <div class="form-inline">
+                                <!-- 第一行 -->                            
+                                <div class="col-4">
+                                    就诊类型：
+                                    <input id="isFirst1" checked type="radio" name="isFirst" value="0"><label for="isFirst1">初诊</label>
+                                    <input id="isFirst2" type="radio" name="isFirst" value="1"><label for="regType2">复诊</label>
+                                </div>
+                                <div class="col-4">
+                                    就诊科室： 
+                                    <select name="dept_id" id="">
+                                        <option value="">门诊</option>
+                                        <option value="">西医科</option>
+                                    </select>
+                                </div>
+                                <div class="col-4">
+                                    就诊医生： 
+                                    <select name="emp_id" id="">
+                                        <option value="">王医生</option>
+                                        <option value="">李医生</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="" class="reset">清空</a></li>
+                    </ul>
+                    <a class="submit" href="">完成登记</a>
+                </div>
+                <!-- 登记列表 -->
+                <div class="tab-pane" id="tab2">
+                    <!-- 搜索栏 -->
+                    <div class="searchBox">
                         <div class="form-inline">
-                            <!-- 第一行 -->
-                            <div class="col-4">
-                                患者姓名： <input type="text"><a class="search" href="">搜索</a>
-                            </div>
-                            <div class="col-4">
-                                患者性别： <input id="sex1" checked type="radio" name="sex" value="0"><label for="sex1">男</label>
-                                <input id="sex2" type="radio" name="sex" value="1"><label for="sex2">女</label>
-                            </div>
-                            <div class="col-4">
-                                患者年龄： <input type="date"> <input type="text">岁
-                            </div>
-                            <!-- 第二行 -->                            
-                            <div class="col-4">
-                                手机号码： <input type="text">
-                            </div>
-                            <div class="col-4">
-                                挂号类别： <input id="regType1" checked type="radio" name="regType" value="0"><label for="regType1">直接挂号</label>
-                                <input id="regType2" type="radio" name="regType" value="1"><label for="regType2">预约挂号</label>
-                            </div>
-                            <div class="col-4">
-                                病历号码： <input type="text">
-                            </div>
-                        </div>
-                    </li>
-                    <!-- 诊前信息 -->
-                    <li>
-                        <h5>诊前信息</h5>
-                        <div class="form-inline">
-                            <!-- 第一行 -->
-                            <div class="col-6">
-                                过敏史： 
-                                <input id="allergies1" checked type="radio" name="allergies" value="0"><label for="allergies1">无</label>
-                                <input id="allergies2" type="radio" name="allergies" value="1"><label for="allergies2">有</label>
-                                <input disabled type="text" style="width:400px;">
-                            </div>
-                            <div class="col-6">
-                                既往史： 
-                                <input id="disHistory1" checked type="radio" name="disease_history" value="0"><label for="disHistory1">无</label>
-                                <input id="disHistory2" type="radio" name="disease_history" value="1"><label for="disHistory2">有</label>
-                                <input disabled type="text" style="width:400px;">
-                            </div>
-                        </div>
-                    </li>
-                    <!-- 就诊信息 -->
-                    <li>
-                        <h5>就诊信息</h5>
-                        <div class="form-inline">
-                            <!-- 第一行 -->                            
-                            <div class="col-4">
+                            <div class="col-3">
+                                登记日期： <input type="date"> - <input type="date">
+                            </div>                   
+                            <div class="col-3">
                                 就诊类型：
-                                <input id="isFirst1" checked type="radio" name="isFirst" value="0"><label for="isFirst1">初诊</label>
-                                <input id="isFirst2" type="radio" name="isFirst" value="1"><label for="regType2">复诊</label>
+                                <select name="isFirst" id="">
+                                    <option value="0">初诊</option>
+                                    <option value="1">复诊</option>
+                                </select>
                             </div>
-                            <div class="col-4">
+                            <div class="col-3">
                                 就诊科室： 
                                 <select name="dept_id" id="">
                                     <option value="">门诊</option>
                                     <option value="">西医科</option>
                                 </select>
                             </div>
-                            <div class="col-4">
+                            <div class="col-3">
                                 就诊医生： 
                                 <select name="emp_id" id="">
                                     <option value="">王医生</option>
                                     <option value="">李医生</option>
                                 </select>
                             </div>
-                        </div>
-                    </li>
-                    <li><a href="" class="reset">清空</a></li>
-                </ul>
-                <a class="submit" href="">完成登记</a>
-            </div>
-            <!-- 登记列表 -->
-            <div class="tab-pane" id="tab2">
-                <!-- 搜索栏 -->
-                <div class="searchBox">
-                    <div class="form-inline">
-                        <div class="col-3">
-                            登记日期： <input type="date">-<input type="date">
-                        </div>                   
-                        <div class="col-3">
-                            就诊类型：
-                            <select name="isFirst" id="">
-                                <option value="0">初诊</option>
-                                <option value="1">复诊</option>
-                            </select>
-                        </div>
-                        <div class="col-3">
-                            就诊科室： 
-                            <select name="dept_id" id="">
-                                <option value="">门诊</option>
-                                <option value="">西医科</option>
-                            </select>
-                        </div>
-                        <div class="col-3">
-                            就诊医生： 
-                            <select name="emp_id" id="">
-                                <option value="">王医生</option>
-                                <option value="">李医生</option>
-                            </select>
+                            <div class="col-3">
+                                就诊状态： 
+                                <select name="staus" id="">
+                                    <option value="0">待诊</option>
+                                    <option value="1">已接诊</option>
+                                    <option value="2">结束就诊</option>
+                                    <option value="3">已作废</option>
+                                </select>
+                            </div>
+                            <div class="col-3">
+                                挂号类别：
+                                <select name="regType" id="">
+                                    <option value="0">直接挂号</option>
+                                    <option value="1">预约挂号</option>
+                                </select>
+                            </div>
+                            <div class="col-3">
+                                <input type="text"><a class="search" href="">搜索</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- 列表栏 -->
-                <div class="regLists">222</div>
+                    <!-- 列表栏 -->
+                    <div class="regLists">
+                        <table>
+                            <thead></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <div class="pages"></div>
+                </div>                
             </div>
-            
         </div>
     </div>
-    </div>
 </body>
+<script>
+// var outRegist=document.getElementsByClassName("outRegist")[0];
+// outRegist.style.height=window.innerHeight;
 
+// 标题数组
+var hTitles=["病历号","姓名","性别","年龄","手机号","挂号类别","就诊类型","就诊医生","就诊科室","登记时间","就诊状态"];
+// 找到<thead>标签
+var thead=document.querySelector("thead");
+// 创建行tr
+var headTr=document.createElement("tr");
+
+var firth=document.createElement("th");
+firth.innerHTML="序号";
+headTr.appendChild(firth);
+// var tr=thead.insertRow();
+// 遍历标题数组hTitles
+for(var key in hTitles){
+    // 每天遍历一次都增加一个th元素
+    var th=document.createElement("th");
+    th.innerHTML=hTitles[key];
+    headTr.appendChild(th);
+}
+// 增加操作列
+var lastTh=document.createElement("th");
+lastTh.innerHTML="操作";
+headTr.appendChild(lastTh);
+// 将行追加到thead元素中
+thead.appendChild(headTr);
+
+
+// 内容数组
+var regLists=[
+    [1,"程月月",0,25,13500000001,"预约挂号","初诊","张医生","西医科","2019-07-13 09:23:00","待诊"],
+    [2,"张小花",0,20,13500000011,"直接挂号","复诊","陈医生","西医科","2019-07-13 10:02:23","待诊"],
+    [3,"陈俊",1,20,13500000022,"直接挂号","复诊","陈医生","西医科","2019-07-13 10:02:23","已接诊"]
+]
+// 找到tbody标签
+var tbody=document.querySelector("tbody");
+// 创建一个文档片段
+var frag=document.createDocumentFragment();
+// 遍历内容数组
+var i=0;
+for(var patient in regLists){
+    // 每遍历一次创建一个行tr
+    var bodyTr=document.createElement("tr");   
+    if(i%2==0){ // 隔行显示背景色
+        // bodyTr.style.background="#eef9fd";
+        bodyTr.className="os";
+    }
+    
+    var fircell=bodyTr.insertCell();
+    fircell.innerHTML=i;
+    var details=regLists[patient];
+    // 遍历每个病人的挂号信息
+    for(var info in details){
+        // 每遍历一次创建一个td
+        var td=bodyTr.insertCell();
+        td.innerHTML=details[info];
+    }
+    // 在每行的末尾增加一列操作栏
+    var last=bodyTr.insertCell();    
+    // 创建添加和删除按钮
+    var updBtn=document.createElement("button");
+    updBtn.innerHTML="修改";
+    updBtn.className="updBtn"
+    var delBtn=document.createElement("button");
+    delBtn.innerHTML="删除";
+    delBtn.className="delBtn"
+    // 对删除按钮添加事件处理函数
+    delBtn.onclick=function(){
+        var btn=this;
+        var tr=btn.parentNode.parentNode;
+        tr.className="selected";
+        var pname=tr.children[1].innerHTML;
+        if(confirm(`确认删除病人： ${pname} 的挂号记录？`)){
+            tbody.removeChild(tr);
+        }
+    }
+    // 将两个按钮追加到last中
+    last.appendChild(updBtn);
+    last.appendChild(delBtn);
+    
+    // 将tr追加到文档片段中
+    frag.appendChild(bodyTr);
+    i++;
+}
+// 将文档片段追加到tbody中
+tbody.appendChild(frag);
+
+// 显示数据量
+var count=tbody.rows.length;
+var pages=document.getElementsByClassName("pages")[0];
+pages.innerHTML=`共${count}行数据，每页20行`;
+</script>
 </html>
