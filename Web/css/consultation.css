@@ -41,11 +41,28 @@ body {
 .consultation .contain .navs a.active{
     color:#fff;
     background:#258ff1;
+    border-color:#258ff1;
     /* background-image:linear-gradient(#48a0fd,#258ff1); */
 }
-.consultation .contain .navs a.active span{color:#fff;}
+.consultation .contain .navs a.active span,
+.consultation .contain .navs a:hover span,
+.consultation .contain .navs a:focus span{color:#fff;}
 .consultation .contain .navs a:hover,
 .consultation .contain .navs a:focus {
-  background:#92bce2;
+  background:#44a4fd;
+  border-color:#258ff1;
   color:#fff;
+}
+
+/* 下方主体区域 */
+.consultation .contain .tab-cont{
+    border:1px solid #ddd;
+}
+.consultation .contain .tab-cont div[id^="tab"]{
+    display:flex;
+    justify-content: around;
+}
+
+.consultation .contain .tab-cont div[id] .patCard{
+    width:400px;height:200px;background:#258ff1;
 }

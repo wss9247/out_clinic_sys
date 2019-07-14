@@ -31,11 +31,13 @@ body {
 .outRegist .contain .menu-tab .nav-link.active{    
     color:#fff;
     background:#258ff1;
+    border-color:#258ff1;
     /* background-image:linear-gradient(#48a0fd,#258ff1); */
 }
 .outRegist .contain .nav-tabs .nav-link:hover,
 .outRegist .contain .nav-tabs .nav-link:focus {
-    background:#92bce2;
+    background:#44a4fd;
+    border-color:#258ff1;
     color:#fff;
 }
 
@@ -81,7 +83,7 @@ body {
     margin-right:4px;    
 }
 .outRegist .contain #tab1 input[type="date"]{
-    width:140px;
+    width:120px;
 }
 .outRegist .contain #tab1 input[type="date"]+input{
     width:34px;margin-right:2px;
@@ -122,7 +124,7 @@ body {
     border:1px solid #ddd;  
 }
 .outRegist .contain #tab2 input[type="date"]{
-    width:140px;
+    width:120px;
 }
 .outRegist .contain .tab-content .searchBox{
     margin-top:1.5rem;
