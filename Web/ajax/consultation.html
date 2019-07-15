@@ -22,21 +22,7 @@
     </ul>
     <!-- 选项卡主体区域 -->
     <div class="tab-cont">
-        <div id="tab1">
-            <div class="patCard">
-                <div class="left"><img src="" alt=""></div>
-                <div class="right">
-                    <div class="pName">哈哈哈</div>
-                    <div class="info">
-                        <span class="sex">男</span>
-                        <span class="isFirst">初诊</span>
-                        <span class="doc">李医生</span>
-                    </div>
-                    <div class="regDte">2019-07-23 12:23:45</div>
-                </div>
-                <p><a href="">接诊</a></p>
-            </div>
-        </div>
+        <div id="tab1" class="active"></div>
         <div id="tab2">
             
         </div>
@@ -48,10 +34,73 @@
 </div>
 </div>
 <script>
-var watings=[
+// 选项卡效果
+var as=document.querySelectorAll("ul.navs a");
+for(var a of as){
+    a.onclick=function(){
+        var a=this;    
+        if(a.className!="active"){
+            var otherA=document.querySelector("navs a.active");
+            if(otherA){
+                otherA.className="";
+                a.className="active";
+                // 根据data-target属性，找到和其值相同的id
+                var id=a.dataset.target;
+                
+                var otherId=document.querySelector("tab-cont .active");
+                if(otherId){
+                    otherId.className="";
+                    var cont=document.getElementById(id);
+                    console.log(cont);
+                    cont.className="active";
+                }
+            }
+
+        }
+    }
+}
+
+
+
+
+
+// #tab1内容加载
+// var 内容加载=document.getElementById("tab1");
+var waiting=[
     ["病人张",1,"初诊","张医生","2019-07-23 12:23:45"],
     ["病人张",1,"初诊","张医生","2019-07-23 12:23:45"]
 ];
+// 创建文档片段
+var frag=document.createDocumentFragment();
+// 遍历
+for(var pat of waiting){
+    // 每遍历一次创建一个患者名片
+    var divBox=document.createElement("div");
+    divBox.className="patCard";
+
+    sex="女";
+    if(pat[1]==0){sex="男"}
+    divBox.innerHTML=`
+        <div class="patHd"></div>
+        <div class="cards">
+            <div class="pName">${pat[0]}</div>
+            <div class="info">${sex} ${pat[2]} ${pat[3]} </div>
+            <div class="regDte">${pat[4]}</div>
+        </div>
+    `;
+
+    // 创建一个标签p用于接诊
+    var a=document.createElement("a");
+    a.href="#";
+    a.innerHTML="接诊";
+    divBox.appendChild(a);
+    // 在文档片段中追加患者名片
+    frag.appendChild(divBox);
+}
+
+
+// 在#tab1中追加文档片段
+tab1.appendChild(frag);
 </script>
 </body>
 </html>

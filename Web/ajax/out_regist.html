@@ -239,7 +239,7 @@ for(var patient in regLists){
         var btn=this;
         var tr=btn.parentNode.parentNode;
         tr.className="selected";
-        var pname=tr.children[1].innerHTML;
+        var pname=tr.children[2].innerHTML;
         if(confirm(`确认删除病人： ${pname} 的挂号记录？`)){
             tbody.removeChild(tr);
         }

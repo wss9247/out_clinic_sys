@@ -20,6 +20,8 @@ body {
     margin:10px 0;
 }
 .consultation .contain .navs{
+    display:flex;
+    justify-content: start;
     border-bottom:none;
     margin:10px 0;
     list-style:none;
@@ -57,12 +59,56 @@ body {
 /* 下方主体区域 */
 .consultation .contain .tab-cont{
     border:1px solid #ddd;
+    padding-left:1rem;padding-top:1rem;
 }
 .consultation .contain .tab-cont div[id^="tab"]{
+    display:none;
+}
+.consultation .contain .tab-cont div[id^="tab"].active{
     display:flex;
     justify-content: around;
+
 }
 
 .consultation .contain .tab-cont div[id] .patCard{
-    width:400px;height:200px;background:#258ff1;
+    float:left;
+    width:320px;height:180px;
+    margin-right:1rem;
+    margin-bottom:1rem;
+    border-radius:5px;
+    position: relative;
+    border:1px solid #ddd;
+    background:#258ff1;
+    overflow:hidden;
+}
+.consultation .tab-cont .patCard .patHd{
+    float:left;
+    width:70px;height:70px;
+    background:url(icons/male_48.png) no-repeat #fff center center;
+    margin:30px;border-radius:50%;
+    overflow:hidden;
+}
+.consultation .contain .tab-cont .cards{
+    float:left;
+    width:180px;height:100px;
+}
+.consultation .tab-cont .patCard .regDte,
+.consultation .tab-cont .patCard .info,
+.consultation .tab-cont .patCard .pName{
+    color:#fff;
+    line-height:24px;
+}
+.consultation .tab-cont .patCard .pName{
+    font-size:24px;
+    line-height:40px;
+    margin-top:20px;
+} 
+.consultation .tab-cont #tab1 .patCard a{
+    float:left;
+    display:block;width:100%;height:50px;
+    text-align:center;
+    line-height:50px;
+    background:#fff;
+    font-size:15px;
+    cursor:point;
 }
