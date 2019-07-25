@@ -6,7 +6,7 @@ const patientInfoRouter=require('./routers/patientInfo_router.js');
 const orgRouter=require('./routers/org_router.js');
 
 var server=express();
-server.listen(8080);
+server.listen(8050);
 
 
 server.use(express.static('public'));

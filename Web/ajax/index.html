@@ -1,0 +1,54 @@
+<html>
+<head>
+	<!-- 引入boot文件 -->
+	<link rel="stylesheet" href="bootstrap.css">
+	<script src="jquery.min.js"></script>
+	<script src="popper.min.js"></script>
+	<script src="bootstrap.min.js"></script>
+	<script src="jquery-3.2.1.js"></script>
+	<script src="vue.js"></script>
+	<style>
+		*{
+			font: 13px "Micorsoft Yahei";
+			padding: 0;
+			margin: 0;
+			color:#333;
+		}
+		body{background:#fafafa;}
+		#section{
+			position:fixed;left:100px;top:56px;
+		}
+		hr{
+			height:1px;
+			margin:0;
+		}
+	</style>
+</head>
+<body>
+	<!-- 页头 -->
+	<header id="header"></header>
+	<hr>
+	<!-- 网页主体 -->
+	<section id="section">
+
+	</section>
+	<!-- 侧边栏：菜单 -->
+	<aside id="aside"></aside>
+
+
+	<script>
+			var bWidth=window.innerWidth;
+			var bHeight=window.innerHeight;
+			$("body").css({
+					width:bWidth,
+					height:bHeight,
+			});
+	</script>
+</body>
+
+<!-- <script src="index.js"></script> -->
+<script src="header.js"></script>
+<script src="aside.js"></script>
+<script src="workspacing.js"></script>
+
+</html>

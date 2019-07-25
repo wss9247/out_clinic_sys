@@ -140,10 +140,17 @@ body {
     width:100%;
     background:#fff;
 }
-.outRegist .contain .regLists tr.os{
+/* 表格隔行变色 
+.outRegist .contain .regLists tr:nth-child(2n){
     background:#eef9fd;
-} 
-
+}
+*/
+/* .outRegist .contain .regLists tr.os{
+    background:#eef9fd;
+}  */
+.outRegist .contain .regLists tr:nth-child(2n){
+    background:#eef9fd;
+}
 .outRegist .contain .regLists tr.selected{
     background:#d2fdf3;
 }

@@ -211,11 +211,7 @@ var i=0;
 for(var patient in regLists){
     // 每遍历一次创建一个行tr
     var bodyTr=document.createElement("tr");   
-    if(i%2==0){ // 隔行显示背景色
-        // bodyTr.style.background="#eef9fd";
-        bodyTr.className="os";
-    }
-    
+    // 每行第一个格子显示序号 
     var fircell=bodyTr.insertCell();
     fircell.innerHTML=i;
     var details=regLists[patient];
@@ -246,8 +242,7 @@ for(var patient in regLists){
     }
     // 将两个按钮追加到last中
     last.appendChild(updBtn);
-    last.appendChild(delBtn);
-    
+    last.appendChild(delBtn);    
     // 将tr追加到文档片段中
     frag.appendChild(bodyTr);
     i++;

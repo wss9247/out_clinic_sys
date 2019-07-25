@@ -23,84 +23,99 @@
     <!-- 选项卡主体区域 -->
     <div class="tab-cont">
         <div id="tab1" class="active"></div>
-        <div id="tab2">
-            
-        </div>
-        <div id="tab3">
-
-        </div>
+        <div id="tab2"></div>
+        <div id="tab3"></div>
     </div>
         
 </div>
 </div>
 <script>
 // 选项卡效果
-var as=document.querySelectorAll("ul.navs a");
+var as=document.querySelectorAll("ul.navs>li>a");
 for(var a of as){
     a.onclick=function(){
-        var a=this;    
+        var a=this;  
+        // 如果当前元素无.active样式
         if(a.className!="active"){
-            var otherA=document.querySelector("navs a.active");
-            if(otherA){
-                otherA.className="";
-                a.className="active";
-                // 根据data-target属性，找到和其值相同的id
-                var id=a.dataset.target;
-                
-                var otherId=document.querySelector("tab-cont .active");
-                if(otherId){
-                    otherId.className="";
-                    var cont=document.getElementById(id);
-                    console.log(cont);
-                    cont.className="active";
-                }
-            }
-
+            // 讲过其他有.active样式名的a标签去掉样式名
+            var otherA=document.querySelector("ul.navs>li>a.active");            
+            otherA.className="";
+            // 当前元素添加.active样式名
+            a.className="active";
+            // 获取data-target属性值
+            var id=a.dataset.target;            
+            // 找到其他的有active样式的div，将其样式名去掉
+            var otherId=document.querySelector(".tab-cont>div.active");                     
+            otherId.className="";
+            // 通过a标签得到的id值，取查找对应的主体div。并设置样式名为.active
+            var tabCont=document.getElementById(id);            
+            tabCont.className="active";      
         }
     }
 }
 
-
-
-
-
 // #tab1内容加载
 // var 内容加载=document.getElementById("tab1");
 var waiting=[
-    ["病人张",1,"初诊","张医生","2019-07-23 12:23:45"],
-    ["病人张",1,"初诊","张医生","2019-07-23 12:23:45"]
+    ["病人张",1,0,"张医生","2019-07-23 12:23:45"],
+    ["病人张",1,0,"张医生","2019-07-23 12:23:45"]
+];
+var waiting2=[
+    ["病人张",1,0,"张医生","2019-07-23 12:23:45"],
+    ["病人张",1,0,"张医生","2019-07-23 12:23:45"],
+    ["病人张",1,0,"张医生","2019-07-23 12:23:45"]
 ];
 // 创建文档片段
 var frag=document.createDocumentFragment();
-// 遍历
-for(var pat of waiting){
-    // 每遍历一次创建一个患者名片
-    var divBox=document.createElement("div");
-    divBox.className="patCard";
+// 封装一个公共的函数：staus-就诊状态。patients-病人数组
+function crads(staus,patients){
+    // 遍历
+    for(var pat of patients){
+        // 每遍历一次创建一个患者名片
+        var divBox=document.createElement("div");
+        divBox.className="patCard";
+        var sex,isFirst;
+        pat[1]==1?sex="男":sex="女";
+        pat[2]==0?isFirst="初诊":isFirst="复诊";        
+        divBox.innerHTML=`
+            <div class="patHd"></div>
+            <div class="cards">
+                <div class="pName">${pat[0]}</div>
+                <div class="info">${sex} ${isFirst} ${pat[3]} </div>
+                <div class="regDte">${pat[4]}</div>
+            </div>
+        `;
+        if(staus==0){  // 待诊病人
+            // 创建一个标签a用于接诊
+            var a=document.createElement("a");
+            a.href="#";
+            a.innerHTML="接诊";
+            divBox.appendChild(a);
+        }else if(staus==1){  // 治疗中病人
+            // 创建2个标签a用于接诊
+            var a1=document.createElement("a");
+            a1.href="#";
+            a1.innerHTML="继续治疗";
+            var a2=document.createElement("a");
+            a2.href="#";
+            a2.innerHTML="完整就诊";
+            a1.style.width="40%";
+            a2.style.width="40%";
+            var p=document.createElement("p");
+            p.appendChild(a1);
+            p.appendChild(a2);
+            divBox.appendChild(p);
 
-    sex="女";
-    if(pat[1]==0){sex="男"}
-    divBox.innerHTML=`
-        <div class="patHd"></div>
-        <div class="cards">
-            <div class="pName">${pat[0]}</div>
-            <div class="info">${sex} ${pat[2]} ${pat[3]} </div>
-            <div class="regDte">${pat[4]}</div>
-        </div>
-    `;
-
-    // 创建一个标签p用于接诊
-    var a=document.createElement("a");
-    a.href="#";
-    a.innerHTML="接诊";
-    divBox.appendChild(a);
-    // 在文档片段中追加患者名片
-    frag.appendChild(divBox);
+        }
+        // 在文档片段中追加患者名片
+        frag.appendChild(divBox);
+    }
+    return frag;
 }
 
+tab1.appendChild(crads(0,waiting));
+tab2.appendChild(crads(1,waiting2));
 
-// 在#tab1中追加文档片段
-tab1.appendChild(frag);
 </script>
 </body>
 </html>

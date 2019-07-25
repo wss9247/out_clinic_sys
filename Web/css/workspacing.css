@@ -1,15 +1,5 @@
-* {
-    font: 13px "Micorsoft Yahei";
-    margin: 0;
-    padding: 0;
-    color:#333;
-}
-
-body {
-    background: #f3f3f3;
-}
-
 .workspacing {
+    box-sizing: border-box;
     margin: 0 1.5rem;
 }
 /* 顶部搜索框+日期 */
@@ -47,6 +37,7 @@ body {
     border-radius: 6px;
     background: #fff;
     padding:2rem 1.5rem;
+    border:1px solid #ddd;
 }
 .workspacing .menu .col-2 .box a,
 .workspacing .menu .col-4 .nav-item{

@@ -1,54 +1,58 @@
-*{
-    font:13px "Micorsoft Yahei";
-    margin:0;
-    padding:0;
-}
 
-.header.navbar{
-    display:block;
-    border-bottom:1px solid #ddd;
-    /* position:absolute;
-    top:0;
-    left:0; */
+#header .navbar{
+  display:block;
+  height:55px;
 }
 /* 网站logo */
-.header.navbar .navbar-brand{
-    position:absolute;
-    left:1.2rem;
-    top:0.7rem;
+#header.navbar .navbar-brand{
+  position:absolute;
+  left:1.2rem;
+  top:0.7rem;
 }
 .navbar-brand:hover, .navbar-brand:focus {
   color:#333;
 }
 /* 面包屑导航 */
-.header .breadcrumb{ 
-    float:right;   
+#header .breadcrumb{ 
+  float:right;   
   background-color:transparent;margin-bottom:0;
 }
-.header .breadcrumb-item + .breadcrumb-item::before {
+#header .breadcrumb-item + .breadcrumb-item::before {
   content: "|";
   display: inline-block;
   padding-right: 1rem;
   padding-left: 1rem;
   color: #6c757d;
 }
-.header .breadcrumb a{
-    color:#333;
-    text-decoration:none;
+#header .breadcrumb a{
+  color:#333;
+  text-decoration:none;
+}
+  #header .breadcrumb a span{
+  display:inline-block;
+  width:16px;height:16px;
+  overflow:hidden;
+  background-image: url(icons/header.png);
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  position:relative;
+  top:3px;
 }
 /* 折叠导航 */
-.header .navbar-collapse{
-    margin-top:0.5rem;
-    margin-left:1rem;
-    border:1px solid #ddd;
-  }
-.header .navbar-collapse .navbar-nav{
-    padding-left:2.3rem;
+#header .navbar-collapse{
+  position: absolute;
+  top:55px;right:88px;
+  width:200px;background:#fff;
+  border:1px solid #ddd;
+  z-index:99;
 }
-.header .navbar-collapse img{
-    margin-right:0.3rem;
+#header .navbar-collapse .navbar-nav{
+  padding-left:2.3rem;
 }
-.navbar-toggler-icon {
+#header .navbar-collapse img{
+  margin-right:0.3rem;
+}
+#header .navbar-toggler-icon {
   width: 0;
   height: 0;
   border:4px solid transparent;
