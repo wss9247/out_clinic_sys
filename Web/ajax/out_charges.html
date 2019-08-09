@@ -1,0 +1,127 @@
+
+<!-- 收费管理 -->
+<div id="out_charges">
+	<div class="contain">
+		<!-- 选项卡nav区域 -->
+		<ul class="navs">
+			<li><a class="active" data-toggle="tab" data-target="tab1">待收费</a></li>
+			<li><a data-toggle="tab" data-target="tab2">已收费</a></li>
+			<li><a data-toggle="tab" data-target="tab3">收费流水</a></li>
+			<li><a data-toggle="tab" data-target="tab4">结账管理</a></li>
+			<li><a data-toggle="tab" data-target="tab5">欠费管理</a></li>
+		</ul>
+		<!-- 选项卡主体区域 -->
+		<div class="tab-cont">
+			<div id="tab1" class="active">					
+				<div class="searchBox">
+					挂号时间：
+					<input class="beginD" type="date">-					
+					<input class="endD" type="date">					
+					<p class="search"><input type="text"><a></a></p>
+				</div>
+				<div class="content"></div>
+			</div>
+			<div id="tab2">
+				<div class="searchBox">
+					收费时间：
+					<input class="beginD" type="date">-					
+					<input class="endD" type="date">					
+					<p class="search"><input type="text"><a></a></p>
+				</div>
+				<div class="content"></div>
+			</div>
+			<div id="tab3">
+
+			</div>
+			<div id="tab4"></div>
+			<div id="tab5"></div>
+		</div>
+	</div>
+</div>
+<script>
+// 病人数据，通过查询数据库病人就诊状态获得0-待诊，1-已接诊，2-结束就诊。
+var pats1=[//待诊病人： 姓名，性别，初复诊，就诊医生，就诊时间
+		["病人张",1,0,"张医生","2019-07-23 12:23:45"]
+	];         
+var pats2=[//已接诊病人
+		["陈晓军",1,0,"张医生","2019-07-23 12:23:45"],
+		["病人陈",1,0,"白医生","2019-07-22 12:23:45"],
+		["汇锦",0,0,"张医生","2019-07-23 12:23:45"]
+	];
+			
+// 按钮标题，不同选项卡对应不同的小按钮
+var anms1=[{"clas":"sf","txt":"收费"}];
+var anms2=[
+		{"clas":"dy","txt":"打印"},
+		{"clas":"more","txt":"更多"}
+	];         
+// 封装一个公共的函数patCards-病人卡片数据,anms-<div class="patBtm">中对应的按钮内容
+function cards(pats,anms){
+	var html="";
+	var i=0;
+	for(var pat of pats){// 
+		var sex=pat[1]==1?'男':'女';
+		var cfz=pat[2]==1?'复诊':'初诊';
+		// 遍历当前循环中对应的anms数据
+		var htmxx="";
+		for(var abtn of anms){
+			var clas=abtn.clas;
+			var txt=abtn.txt;
+			htmxx +=`<a class="${clas}">${txt}</a>`;
+		}          
+		html+=`
+			<div class="nbox">
+				<div class="patCard">
+					<div class="patHd"></div>
+					<div class="cards">
+						<div class="pName">${pat[0]}</div>
+						<div class="info"> ${sex} ${cfz} ${pat[3]}</div>
+						<div class="regDte">${pat[4]}</div>
+					</div>
+					<div class="patBtm">${htmxx}</div>
+				</div>
+				<div class="morebtn">
+					<a class="tf">退费</a>
+					<a class="info">查看详情</a>
+				</div>
+			</div>
+		`;
+		i++;
+	}
+	return html;
+}
+$("#out_charges #tab1 .content").html(cards(pats1,anms1));
+/******************************************************** */
+// 选项卡效果
+$("#out_charges ul.navs").on("click","a[data-toggle=tab]",function(){
+	var a=$(this); // 获取当前元素
+	var aTarget=a.attr("data-target");//获取元素的data-target属性值
+	var divBox=$(`#${aTarget}`) //，找到相同id的元素    
+	a.parent().siblings().children().removeClass("active");// 其他的a去掉active类名
+	a.addClass("active");  //当前元素添加类名active 
+	divBox.addClass("active")  // id和data-target属性值一致的元素添加类名active
+	divBox.siblings().removeClass("active");// 其他的id去掉active类名
+	// 当前选项卡内容显示后，自动去加载对应的html内容
+	var pats,anms; 
+	if(aTarget=="tab1"){
+		divBox.children(".content").html(cards(pats1,anms1));
+	}else if(aTarget=="tab2"){
+		divBox.children(".content").html(cards(pats2,anms2));
+	}else if(aTarget=="tab3"){	// #tab3内容
+		$("#out_charges #tab3").load("out_charges/out_charges_detail.html");
+	}
+	// 更多按钮
+	$("#out_charges #tab2 a.more").mouseover(function(){	
+		var moreBtn=$(this).parent().parent().siblings();
+		moreBtn.show();
+	})		
+})
+ $(window).mouseover(function(e){
+	if(e.target.nodeName!="A"){
+		$("#out_charges #tab2 .morebtn").hide();
+	}
+ })
+
+
+
+</script>

@@ -1,0 +1,206 @@
+
+#out_regist{
+    margin: 0 1.5rem;
+}
+/* 选项卡主体区域 */
+/* 上部分 */
+#out_regist .contain .nav-tabs.menu-tab{
+    display:flex;
+    border-bottom:none;
+    margin:10px 0;
+}
+#out_regist .contain .menu-tab .nav-item .nav-link{
+    display:inline-block;
+    padding:8px 35px;
+    color:#666;
+    margin-right:2px;
+    font-size:15px;
+    background-image:linear-gradient(#eee,#d5d5d5);
+    border:1px solid #ccc;
+    border-radius:3px;
+}
+#out_regist .contain .menu-tab .nav-link.active{    
+    color:#fff;
+    background:#258ff1;
+    border-color:#258ff1;
+    /* background-image:linear-gradient(#48a0fd,#258ff1); */
+}
+#out_regist .contain .nav-tabs .nav-link:hover,
+#out_regist .contain .nav-tabs .nav-link:focus {
+    background:#44a4fd;
+    border-color:#258ff1;
+    color:#fff;
+}
+
+/* 下部分-今日就诊 */
+
+#out_regist .contain .tab-content .tab-pane{
+    display:none;
+    border:1px solid #ddd;
+    background:#fff;
+}
+#out_regist .contain .tab-content .tab-pane.active{
+    display:block;
+}
+
+#out_regist .contain .tab-content ul{
+    border-top:none;
+}
+
+#out_regist .contain #tab1 li{
+    border-bottom:1px dashed #ddd;
+}
+#out_regist .contain #tab1 li:last-child{
+    border-bottom:none;
+}
+#out_regist .contain #tab1 li h5{
+    margin:1.5rem 0;
+    padding-left:0.5rem;
+    border-left:2px solid #258ff1;
+}
+#out_regist .contain .form-inline{
+    overflow:hidden;
+}
+#out_regist .contain .form-inline div[class^="col"]{
+    margin-bottom:10px;
+}
+#out_regist .contain .form-inline .col-4{
+    display:inline-block;width:33%;
+}
+#out_regist .contain .form-inline .col-3{
+    display:inline-block;width:33%;
+}
+#out_regist .contain #tab1 .form-inline label{
+    display:inline-block;
+    margin-right:1.4rem;
+}
+#out_regist .contain #tab1 input,
+#out_regist .contain #tab1 select{
+    width:200px;height:30px;
+    /* padding-left:10px; */
+    padding:4px 0 4px 5px;
+    border:1px solid #ddd;
+}
+#out_regist .contain #tab1 input[type="radio"]{
+    width:1.2rem;height:1.2rem;
+    position:relative;top:3px;
+    margin-right:4px;    
+}
+#out_regist .contain #tab1 input[type="date"]{
+    width:130px;
+}
+#out_regist .contain #tab1 input[type="date"]+input{
+    width:34px;margin-right:2px;
+}
+/* 搜索按钮、提交按钮 */
+#out_regist .contain .search,
+#out_regist .contain #tab1 .submit{
+    display:inline-block;
+    width:50px;height:30px;margin-left:2px;border-radius:3px;
+    color:#fff;text-align:center;line-height:30px;
+    background:#258ff1;text-decoration: none;
+    border:none;
+}
+#out_regist .contain #tab2 .search{
+    position:relative;top:-1px;
+}
+#out_regist .contain #tab1 .submit{
+    width:126px;height:40px;float:right;margin-right:20px;margin-top:20px;
+    line-height:40px;font-size:15px;
+}
+/* 清空按钮 */
+#out_regist .contain #tab1 .reset{
+    display:inline-block;height:20px;width:100px;margin:20px;
+    color:#007bff;padding-left:25px;font-size:15px;line-height:20px;
+    background:url("../../../assets/trash_can2_16.png") no-repeat left center;
+}
+#out_regist .contain #tab1 .reset:hover{
+    text-decoration: none;
+}
+
+/* 选项卡二-登记列表 */
+#out_regist .contain .tab-content .tab-pane#tab2{
+    background:transparent;
+    /* position:relative; */
+}
+#out_regist .contain #tab2 input,
+#out_regist .contain #tab2 select{
+    width:200px;height:30px;
+    padding:4px 0 4px 10px;
+    border:1px solid #ddd;  
+}
+#out_regist .contain #tab2 input[type="date"]{
+    width:120px;
+}
+#out_regist .contain .tab-content .searchBox{
+    margin-top:1.5rem;
+    padding-bottom:1rem;
+}
+
+#out_regist .contain .regLists table{
+    display:block;
+    margin:-1px;
+}
+
+#out_regist .contain .regLists tr{
+    width:100%;
+    background:#fff;
+}
+/* 表格隔行变色 
+#out_regist .contain .regLists tr:nth-child(2n){
+    background:#eef9fd;
+}
+*/
+/* #out_regist .contain .regLists tr.os{
+    background:#eef9fd;
+}  */
+#out_regist .contain .regLists tr:nth-child(2n){
+    background:#eef9fd;
+}
+#out_regist .contain .regLists tr.selected{
+    background:#d2fdf3;
+}
+#out_regist .contain .regLists th,
+#out_regist .contain .regLists td{
+    padding: 1rem;
+    /* border:1px solid #b9dbea; */
+    border:1px solid #ddd;
+}
+#out_regist .contain .regLists th{
+    background:#e8e8e8;
+    font-weight:bold;
+    text-align:center;
+    width:1%;
+}
+#out_regist .contain .regLists th:nth-child(11){
+    width:1.5%;
+}
+#out_regist .contain .regLists th:last-child{
+    width:2%;
+}
+#out_regist .contain .regLists td:last-child{
+    text-align:center;
+}
+#out_regist .contain .regLists td{
+    padding-top:0.5rem;padding-bottom:0.5rem;
+}
+#out_regist .contain .regLists button{
+    display:inline-block;border:1px solid #aaa;
+    background-image:linear-gradient(#f1f1f1,#eee);
+    padding:3px 5px;margin:0 5px;
+    color:#000; border-radius:3px;
+}
+#out_regist .contain .regLists button.updBtn{
+    color:#fff;border-color:#258ff1;
+    background-image:linear-gradient(#7bc0ff,#258ff1);
+    /* color:#fff;border-color:#0a9410;
+    background-image:linear-gradient(#18b91f,#0a9410); */
+}
+/* 翻页 */
+#out_regist .contain .pages{
+    position:absolute;
+    left:1.5rem;
+    bottom:2rem;
+    overflow:hidden;
+    font-size:15px;
+}

@@ -1,0 +1,181 @@
+#workspacing {
+    box-sizing: border-box;
+    margin: 0 1.5rem;
+}
+/* 顶部搜索框+日期 */
+#workspacing .top{
+    margin:2rem 0;
+}
+
+#workspacing .top.searchBox{
+    justify-content: space-between;
+}
+#workspacing .top input{
+    margin-right:5px;
+}
+#workspacing .right input{
+    width:300px;
+}
+#workspacing .top button{
+    border:none;
+    padding:0.5rem 1rem;
+    background:#258ff1;
+    border-radius:3px;color:#fff;
+}
+/* 快捷菜单导航 */
+#workspacing .menu{
+    margin-bottom:10px;
+    display:flex;
+    justify-content: space-between;
+}
+#workspacing .menu:last-child {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom:0.8rem;
+    display:flex;
+    justify-content: space-between;
+}
+
+#workspacing .menu .box,
+#workspacing .menu .nav {
+    border-radius: 6px;
+    background: #fff;
+    padding:1.5rem 1.5rem;
+    border:1px solid #ddd;
+}
+#workspacing .menu .box{
+    width:16%;
+}
+#workspacing .menu .nav{
+    display:flex;width:33%;
+    justify-content: space-between;
+}
+#workspacing .menu .box a,
+#workspacing .menu .nav-item{
+    display:block;
+}
+#workspacing .menu .box a{
+    color:#333;text-decoration: none;
+}
+#workspacing .menu .box a span{
+    display:inline-block;
+    font-size:2rem;
+    margin-bottom:0.5rem;
+    color:#007bff;
+}
+#workspacing .menu .nav li{width:70px;height:70px;}
+#workspacing .menu .nav .nav-item .nav-link{
+    display:block;
+    width:70px;height:70px;
+    text-align:center;
+    overflow:hidden;
+    padding:0;
+    background:url(../../../assets/workspacing-icon.png) no-repeat left top;
+}
+/* 右侧图片导航：使用精灵图 */
+#workspacing .menu .nav .nav-item:nth-child(2) .nav-link{
+    background-position:-70px top;
+}
+#workspacing .menu .nav .nav-item:nth-child(3) .nav-link{
+    background-position:-140px top;
+}
+#workspacing .menu .nav .nav-item:nth-child(4) .nav-link{
+    background-position:-210px top;
+}
+#workspacing .menu .nav .nav-item a span{
+    display:none;
+    width:70px;height:70px;
+    color:#fff;font-size:1.2rem;
+    padding:1rem;background:#258ff1;
+    border-radius:50%;
+}
+#workspacing .menu .nav .nav-item a:hover span{
+    display:block;
+}
+
+/* 选项卡主体区域 */
+/* 上部分 */
+#workspacing .contain .nav-tabs.menu-tab{
+    display:flex;    
+    background:#258ff1;
+    padding-top:1rem;padding-left:1rem;
+    border-top-right-radius:6px;
+    border-top-left-radius:6px;
+    border-bottom:none;
+}
+#workspacing .contain .menu-tab .nav-item + .nav-item::before{
+    content: "|";
+    color:#fff;
+}
+#workspacing .contain .menu-tab .nav-link{
+    display:inline-block;
+    padding:0.8rem 2.5rem;
+    font-weight:bold;color:#fff;
+    color:#fff;
+}
+#workspacing .contain .menu-tab .nav-link span{
+    color:#fff;
+}
+#workspacing .contain .menu-tab .nav-link.active{
+    color:#333;
+}
+#workspacing .contain .menu-tab .nav-link.active span{
+    color:#333;
+}
+#workspacing .contain .nav-tabs .nav-link:hover,
+#workspacing .contain .nav-tabs .nav-link:focus {
+  border-color:transparent;
+}
+
+/* 下部分-今日就诊 */
+#workspacing .contain .tab-content{
+    border-top:none;
+    background:#fff;
+}
+#workspacing .contain .tab-content .tab-pane{display:none;}
+#workspacing .contain .tab-content .tab-pane.active{display:block;}
+
+#workspacing .contain table{
+    display:block;
+    padding:3px;
+}
+#workspacing .contain th,
+#workspacing .contain td{
+    padding: 1rem;
+    border:1px solid #b9dbea;
+}
+#workspacing .contain th{
+    background:#f2f2f2;
+    font-weight:bold;
+    text-align:center;
+}
+#workspacing .contain td{
+    padding-top:0.7rem;padding-bottom:0.7rem;
+}
+#workspacing .contain td:last-child{text-align:center;}
+#workspacing td button{
+    margin-right:0.5rem;
+    padding:2px 8px;
+    border-radius:3px;
+    color:#fff;
+    background:#118c0a;
+}
+#workspacing td button:last-child{
+    margin-right:0;}
+#workspacing .contain .pageNav{
+    overflow:hidden;
+}
+#workspacing .contain .pageNav .pagination{
+    float:right;
+    display:flex;
+} 
+#workspacing .contain .pageNav button{
+    margin-right:0.5rem;
+    padding:2px 8px;
+    border:1px solid #ddd;
+    border-radius:3px;
+    background:#fff;
+}
+#workspacing .contain .pageNav button.active{
+    background:#258ff1;color:#fff;
+}

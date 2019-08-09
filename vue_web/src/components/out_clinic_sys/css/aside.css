@@ -1,0 +1,67 @@
+#asideMenu{
+    width:100px;
+    background:#23426b;
+    color:#fff;
+}
+#asideMenu a span{color:#fff;}
+#asideMenu .nav-item{
+    width:100px;
+    text-align:center;
+    height:99px;
+    border-bottom:1px solid #233854;
+}
+#asideMenu .nav-item a{
+    /* display:block; */
+    color:#85acd1;
+    font-weight:blod;
+}
+/* 精灵图 */
+#asideMenu .nav-item a b{
+    display:inline-block;
+    width:24px;height:24px;
+    background:url("../../../assets/aside-icon.png") no-repeat left top;
+    margin:1rem auto;
+}
+#asideMenu .nav-item:nth-child(2) a b{
+    background-position:-24px top;
+}
+#asideMenu .nav-item:nth-child(3) a b{
+    background-position:-48px top;
+}
+#asideMenu .nav-item:nth-child(4) a b{
+    background-position:-72px top;
+}
+#asideMenu .nav-item:nth-child(5) a b{
+    background-position:-96px top;
+}
+#asideMenu .nav-item:nth-child(6) a b{
+    background-position:-120px top;
+}
+/* #asideMenu .nav-item a img{
+    margin:1rem auto;
+} */
+#asideMenu .nav-item.active,
+#asideMenu .nav-item:hover{
+    background:#258ff1;
+}
+#asideMenu .nav-item.active a,
+#asideMenu .nav-item:hover a{
+    color:#fff;
+}
+
+#asideMenu .navbar{
+    width:100px;
+    position:relative;
+}
+#asideMenu .navbar .moreBtn{
+    color:#fff;
+    height:37px;display:block;
+    line-height:37px;text-align:center;
+}
+
+#asideMenu .moreCont{
+    position:absolute;
+    bottom:0;left:100px;
+    background:#23426b;
+    z-index:100;
+}

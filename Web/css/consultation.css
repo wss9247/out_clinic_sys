@@ -1,114 +1,179 @@
-* {
-    font: 13px "Micorsoft Yahei";
-    padding: 0;
-    margin: 0;
-    color:#333;
-}
-ul{margin-bottom:0;}
-body {
-    background: #f3f3f3;
-}
-
-
-.consultation{
-    margin: 0 1.5rem;
+#consultation{
+	margin: 0 1.5rem;
 }
 /* 选项卡主体区域 */
 /* 上部分 */
-.consultation .contain {
-    border-bottom:none;
-    margin:10px 0;
+/* #consultation .contain {
+	border-bottom:none;
+	margin:10px 0;
+} */
+#consultation .navs{
+	display:flex;height:40px;
+	justify-content: start;
+	border-bottom:none;
+	margin:10px 0;
+	list-style:none;
 }
-.consultation .contain .navs{
-    display:flex;
-    justify-content: start;
-    border-bottom:none;
-    margin:10px 0;
-    list-style:none;
+#consultation .navs li{
+	float:left;
 }
-.consultation .contain .navs li{
-    float:left;
+#consultation .navs a{
+	display:inline-block;
+	padding:0.6rem 2.5rem;
+	color:#666;
+	margin-right:2px;
+	font-size:15px;
+	background-image:linear-gradient(#eee,#d5d5d5);
+	border-radius:3px;
+	border:1px solid #ccc;
 }
-.consultation .contain .navs a{
-    display:inline-block;
-    padding:0.6rem 2.5rem;
-    color:#666;
-    margin-right:2px;
-    font-size:15px;
-    background-image:linear-gradient(#eee,#d5d5d5);
-    border-radius:3px;
-    border:1px solid #ccc;
-    /* border-radius:3px; */
+#consultation .navs a.active{
+	color:#fff;
+	background:#258ff1;
+	border-color:#258ff1;
+	/* background-image:linear-gradient(#48a0fd,#258ff1); */
 }
-.consultation .contain .navs a.active{
-    color:#fff;
-    background:#258ff1;
-    border-color:#258ff1;
-    /* background-image:linear-gradient(#48a0fd,#258ff1); */
-}
-.consultation .contain .navs a.active span,
-.consultation .contain .navs a:hover span,
-.consultation .contain .navs a:focus span{color:#fff;}
-.consultation .contain .navs a:hover,
-.consultation .contain .navs a:focus {
+#consultation .navs a.active span,
+#consultation .navs a:hover span,
+#consultation .navs a:focus span{color:#fff;}
+#consultation .navs a:hover,
+#consultation .navs a:focus {
   background:#44a4fd;
   border-color:#258ff1;
   color:#fff;
 }
 
 /* 下方主体区域 */
-.consultation .contain .tab-cont{
-    border:1px solid #ddd;
-    padding-left:1rem;padding-top:1rem;
+#consultation .tab-cont{
+	/* border:1px solid #ddd;height:80%; */
+	/* padding-left:1rem;padding-top:1rem; */
 }
-.consultation .contain .tab-cont div[id^="tab"]{
-    display:none;
+#consultation .tab-cont div[id^="tab"]{display:none;}
+#consultation .tab-cont div[id^="tab"].active{display:block;}
+#consultation .tab-cont div[id] .patCard{
+	float:left;
+	width:320px;height:180px;
+	margin-right:1rem;
+	margin-bottom:1rem;
+	border-radius:5px;
+	position: relative;
+	border:1px solid #ddd;
+	background:#258ff1;
+	overflow:hidden;
 }
-.consultation .contain .tab-cont div[id^="tab"].active{
-    display:flex;
-    justify-content: around;
-
+#consultation .tab-cont .patCard .patHd{
+	float:left;
+	width:70px;height:70px;
+	background:url(icons/male_48.png) no-repeat #fff center center;
+	margin:30px;border-radius:50%;
+	overflow:hidden;
 }
-
-.consultation .contain .tab-cont div[id] .patCard{
-    float:left;
-    width:320px;height:180px;
-    margin-right:1rem;
-    margin-bottom:1rem;
-    border-radius:5px;
-    position: relative;
-    border:1px solid #ddd;
-    background:#258ff1;
-    overflow:hidden;
+#consultation .contain .tab-cont .cards{
+	float:left;
+	width:180px;height:100px;
 }
-.consultation .tab-cont .patCard .patHd{
-    float:left;
-    width:70px;height:70px;
-    background:url(icons/male_48.png) no-repeat #fff center center;
-    margin:30px;border-radius:50%;
-    overflow:hidden;
+#consultation .tab-cont .patCard .regDte,
+#consultation .tab-cont .patCard .info,
+#consultation .tab-cont .patCard .pName{
+	color:#fff;
+	line-height:24px;
 }
-.consultation .contain .tab-cont .cards{
-    float:left;
-    width:180px;height:100px;
-}
-.consultation .tab-cont .patCard .regDte,
-.consultation .tab-cont .patCard .info,
-.consultation .tab-cont .patCard .pName{
-    color:#fff;
-    line-height:24px;
-}
-.consultation .tab-cont .patCard .pName{
-    font-size:24px;
-    line-height:40px;
-    margin-top:20px;
+#consultation .tab-cont .patCard .pName{
+	font-size:24px;
+	line-height:40px;
+	margin-top:20px;
 } 
-.consultation .tab-cont .patCard a{
-    float:left;
-    display:block;width:100%;height:50px;
-    text-align:center;
-    line-height:50px;
-    background:#fff;
-    font-size:15px;
-    cursor:point;
+#consultation .tab-cont .patCard .patBtm{
+	float:left;
+	display:block;width:100%;height:50px;
+	background:#fff;
+}
+#consultation .patCard .patBtm a{
+	display:inline-block;height:50px;
+	width:100%;
+	font-size:15px;
+	cursor:point;
+	color:#666;line-height:50px;
+	text-align:center;
+	text-decoration: none;
+}
+#consultation .patCard .patBtm a.jxzl,
+#consultation .patCard .patBtm a.wcjz{width:50%;}
+#consultation .patCard .patBtm a.wcjz{border-left:1px solid #ddd;}
+/* 快速接诊 */
+/* 快速接诊-固定部分 */
+#consultation .searchBox{
+	display:flex;width:500px;
+	justify-content: space-between;
+	position:absolute;
+	right:1.5rem;
+	top:10px;line-height:30px;
+}
+/* 快速接诊-弹出部分 */
+#consultation #popBox{
+	display:none; /*默认隐藏*/
+	width:500px;height:396px;
+	box-shadow:0 3px 10px #ddd;
+	position:absolute;
+	right:1.5rem;
+	top:61px;
+}
+#consultation #popBox.show{display:block;}
+/* 快速接诊-弹出部分-标题 */
+#consultation #popBox .titlebox{
+	background:#258ff1;	
+	border-top-left-radius:6px;
+	border-top-right-radius:6px;
+	width:100%;
+	position: relative;color:#fff;
+}
+#consultation #popBox .titlebox h5{
+	height:56px;line-height:56px;padding-left:15px;
+	margin:0;
+}
+#consultation #popBox .titlebox .closex{
+	position: absolute;right:13px;top:16px;
+}
+/* 快速接诊-弹出部分-内容 */
+#consultation #popBox .btmbox{
+	display:block;
+	background: #fff;
+	border-bottom-left-radius:6px;
+	border-bottom-right-radius:6px;
+	box-sizing: border-box;padding:15px;
+}
+#consultation #popBox .btmbox table{width:100%;}
+#consultation #popBox .btmbox table td:first-child{width:17%;}
+#consultation #popBox .btmbox table td:last-child{width:83%;}
+#consultation #popBox .btmbox table tr{
+	height:50px;
+}
+#consultation #popBox .btmbox table input,
+#consultation #popBox .btmbox table select{
+	padding:0.25rem 0.7rem;
+}
+#consultation #popBox .btmbox table tr:nth-child(1) input,
+#consultation #popBox .btmbox table tr:nth-child(4) input,
+#consultation #popBox .btmbox table tr:nth-child(5) select{width:100%;}
+#consultation #popBox .btmbox table tr:nth-child(3) input{width:40%;}
+#consultation #popBox .btmbox table span{color:#f00;}
+
+#consultation #popBox .btm .jiez,
+#consultation #popBox .btm .reset{
+	display:inline-block;
+	color:#007bff;font-size:15px;line-height:20px;
+	text-decoration: none;
+}
+#consultation #popBox .btm .jiez{
+	float:right;width:100px;height:30px;margin-top:15px;margin-right:20px;
+	color:#fff;text-align:center;line-height:30px;text-align:center;
+	background:#258ff1;
+	border-radius:3px;
+}
+#consultation #popBox .btm .reset{
+	height:20px;width:100px;margin:20px;padding-left:25px;
+	background:url("icons/trash_can2_16.png") no-repeat left center;
+}
+#consultation #popBox .reset:hover{
+	text-decoration: none;
 }

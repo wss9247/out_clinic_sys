@@ -1,0 +1,61 @@
+
+#header{
+  height:55px;
+} 
+#header .navbar{
+  margin:0 20px;
+}
+/* 网站logo */
+#header.navbar .navbar-brand{
+  position:absolute;
+  left:1.2rem;
+  top:0.7rem;
+}
+.navbar-brand:hover, .navbar-brand:focus {
+  color:#333;
+}
+/* 面包屑导航 */
+#header .breadcrumb{ 
+  float:right;   
+  height:20px;margin:17px 0;
+  background-color:transparent;margin-bottom:0;
+}
+
+#header .breadcrumb-item{
+  float:left;
+}
+#header .breadcrumb-item + .breadcrumb-item::before {
+  content: "|";
+  display: inline-block;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  color: #6c757d;
+}
+#header  a{
+  color:#333;
+  text-decoration:none;
+}
+  #header .breadcrumb a span{
+  display:inline-block;
+  width:16px;height:16px;
+  overflow:hidden;
+  background-image: url(../../../assets/header.png);
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  position:relative;
+  top:3px;
+}
+/* 折叠导航 */
+#header .navbar-collapse{
+  position: absolute;
+  top:55px;right:45px;
+  width:180px;background:#fff;
+  border:1px solid #ddd;
+  z-index:99;
+}
+#header .navbar-collapse .nav-item{
+  height:30px;
+  padding-left:1.2rem;
+  line-height:30px;
+  border-bottom:1px solid #eee;
+}

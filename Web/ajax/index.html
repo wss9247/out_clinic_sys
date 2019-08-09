@@ -6,7 +6,20 @@
 	<script src="popper.min.js"></script>
 	<script src="bootstrap.min.js"></script>
 	<script src="jquery-3.2.1.js"></script>
+	<!-- 引入vue.js文件 -->
 	<script src="vue.js"></script>
+	<script src="axios.min.js"></script>
+	<script src="vue-router.js"></script>
+	<!--引入自定义  -->
+<script src="header.js"></script>
+<script src="aside.js"></script>
+<script src="workspacing.js"></script>
+<script src="consultation.js"></script>
+<script src="out_regist.js"></script>
+<script src="out_charges.js"></script>
+<script src="index.js"></script>
+
+<!-- 内联样式 -->
 	<style>
 		*{
 			font: 13px "Micorsoft Yahei";
@@ -15,40 +28,95 @@
 			color:#333;
 		}
 		body{background:#fafafa;}
+		a{cursor: pointer;}
 		#section{
-			position:fixed;left:100px;top:56px;
+			position:fixed;
+			border-top:1px solid #ddd;
 		}
 		hr{
 			height:1px;
 			margin:0;
 		}
+		.searchBox{
+			display:flex;width:100%;
+			flex-flow:row wrap;
+			line-height:30px;
+		}
+		/* 搜索框 */
+		.searchBox input,
+		.searchBox p,
+		.searchBox select{
+			margin:0 5px 5px;
+			height:30px;outline:none;
+		}
+		.searchBox select,
+		.searchBox input{
+			border:1px solid #ddd;
+			outline:none;
+			padding:0.35rem;
+			height:30px;width:160px;
+		}
+		.searchBox select{width:100px;}
+		.searchBox a{
+			display:inline-block;height:30px;
+			font-size:15px;text-align:center;
+			background:#258ff1;	
+			color:#fff;line-height:30px;
+			border-radius:3px;
+		}
+		.searchBox a.popup{
+			width:100px;
+		}
+		.searchBox a.popup:not([href]):not([tabindex]){
+			color:#fff;
+		}
+		.searchBox a:hover{
+			color:#fff;text-decoration: none;
+		}
+		.searchBox .search a{ /* 搜索按钮*/
+			width:30px;
+			background:url("icons/search.png") center center no-repeat #258ff1;
+			border-top-left-radius:0;
+			border-bottom-left-radius:0;
+		}
+		.searchBox .search input{
+			position: relative;top:-10px;
+			margin-right:0;
+		}  
 	</style>
+	
 </head>
 <body>
+	<!-- 添加一个页面唯一的父元素#app -->
+<div id="app">
 	<!-- 页头 -->
 	<header id="header"></header>
-	<hr>
 	<!-- 网页主体 -->
 	<section id="section">
-
+		<div id="container"></div>
 	</section>
 	<!-- 侧边栏：菜单 -->
-	<aside id="aside"></aside>
-
-
-	<script>
-			var bWidth=window.innerWidth;
-			var bHeight=window.innerHeight;
-			$("body").css({
-					width:bWidth,
-					height:bHeight,
-			});
-	</script>
+	<aside id="aside">
+		<div id="asideMenu"></div>
+	</aside>
+</div>
 </body>
 
-<!-- <script src="index.js"></script> -->
-<script src="header.js"></script>
-<script src="aside.js"></script>
-<script src="workspacing.js"></script>
+<script>
+// 获取<section id="section">元素的宽高
+var secWidth=window.innerWidth-100;
+var secHeight=window.innerHeight-56;
+$("#section").css({
+	width:secWidth,
+	height:secHeight,
+	top:55,
+	left:100
+});
 
+// 获取<body>元素的宽高
+var bWidth=window.innerWidth;
+var bHeight=window.innerHeight;
+$("#aside").css("height",bHeight-56+"px");
+	
+</script>
 </html>

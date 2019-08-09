@@ -1,0 +1,125 @@
+#out_charges{
+	margin: 0 1.5rem;
+}
+/* 选项卡主体区域 */
+/* 上部分 */
+/* #out_charges .contain {
+	border-bottom:none;
+	margin:10px 0;
+} */
+#out_charges .navs{
+	display:flex;height:40px;
+	justify-content: start;
+	border-bottom:none;
+	margin:10px 0;
+	list-style:none;
+}
+#out_charges .navs li{
+	float:left;
+}
+#out_charges .navs a{
+	display:inline-block;
+	padding:0.6rem 2.5rem;
+	color:#666;
+	margin-right:2px;
+	font-size:15px;
+	background-image:linear-gradient(#eee,#d5d5d5);
+	border-radius:3px;
+	border:1px solid #ccc;
+}
+#out_charges .navs a.active{
+	color:#fff;
+	background:#258ff1;
+	border-color:#258ff1;
+	/* background-image:linear-gradient(#48a0fd,#258ff1); */
+}
+
+#out_charges .navs a:hover,
+#out_charges .navs a:focus {
+  background:#44a4fd;
+  border-color:#258ff1;
+  color:#fff;
+}
+
+/* 下方主体区域 */
+#out_charges .tab-cont{
+	/* border:1px solid #ddd;height:80%; */
+	/* padding-left:1rem;padding-top:1rem; */
+}
+#out_charges .tab-cont div[id^="tab"]{display:none;}
+#out_charges .tab-cont div[id^="tab"].active{display:block;}
+
+#out_charges .tab-cont div[id] .nbox{
+	width:320px;height:182px;float:left;
+	position: relative;
+	margin-right:1rem;
+	margin-bottom:1rem;
+} 
+#out_charges .tab-cont div[id] .patCard{
+	width:320px;height:182px;
+	border-radius:5px;
+	position: relative;
+	border:1px solid #ddd;
+	background:#258ff1;
+	/* overflow:hidden; */
+}
+#out_charges .tab-cont .patCard .patHd{
+	float:left;
+	width:70px;height:70px;
+	background:url(icons/male_48.png) no-repeat #fff center center;
+	margin:30px;border-radius:50%;
+	overflow:hidden;
+}
+#out_charges .contain .tab-cont .cards{
+	float:left;
+	width:180px;height:100px;
+}
+#out_charges .tab-cont .patCard .regDte,
+#out_charges .tab-cont .patCard .info,
+#out_charges .tab-cont .patCard .pName{
+	color:#fff;
+	line-height:24px;
+}
+#out_charges .tab-cont .patCard .pName{
+	font-size:24px;
+	line-height:40px;
+	margin-top:20px;
+} 
+#out_charges .tab-cont .patCard .patBtm{
+	float:left;
+	display:block;width:100%;height:50px;
+	background:#fff;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+}
+#out_charges .patCard .patBtm a{
+	display:inline-block;height:50px;
+	width:100%;
+	font-size:15px;
+	cursor:point;
+	color:#666;line-height:50px;
+	text-align:center;
+	text-decoration: none;
+}
+#out_charges .patCard .patBtm a.more,
+#out_charges .patCard .patBtm a.dy{width:50%;}
+#out_charges .patCard .patBtm a.more{border-left:1px solid #ddd;}
+#out_charges .morebtn{
+	display:none;
+}
+#out_charges #tab2 .morebtn{
+	width:50%;text-align:center;
+	position: absolute;bottom:-81px;right:0;	
+	border:1px solid #ddd;border-top:none;
+}
+#out_charges #tab2 .morebtn a{
+	display:block;
+	height:40px;line-height:40px;
+	background:#fff;color:#258ff1;
+}
+#out_charges #tab2 .morebtn a:first-child{
+	border-bottom:1px solid #ddd;
+}
+
+
+

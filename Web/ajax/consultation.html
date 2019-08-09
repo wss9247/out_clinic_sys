@@ -1,121 +1,154 @@
-<html>
 
-<head>
-    <title>今日就诊</title>
-    <!-- 引入boot文件 -->
-    <link rel="stylesheet" href="bootstrap.css">
-    <!-- <script src="jquery.min.js"></script>
-    <script src="popper.min.js"></script>
-    <script src="bootstrap.min.js"></script> -->
-
-    <!-- 自定义外联css -->
-    <link rel="stylesheet" href="consultation.css">
-</head>
-<body>
-<div class="consultation">
-<div class="contain">
-    <!-- 选项卡nav区域 -->
-    <ul class="navs">
-        <li><a class="active" data-toggle="tab" data-target="tab1">候诊中(<span>0</span>)</a></li>
-        <li><a data-toggle="tab" data-target="tab2">治疗中(<span>0</span>)</a></li>
-        <li><a data-toggle="tab" data-target="tab3">已完成(<span>0</span>)</a></li>
-    </ul>
-    <!-- 选项卡主体区域 -->
-    <div class="tab-cont">
-        <div id="tab1" class="active"></div>
-        <div id="tab2"></div>
-        <div id="tab3"></div>
-    </div>
-        
-</div>
+<!-- 今日就诊 -->
+<div id="consultation">
+	<div class="contain">
+		<ul class="navs">
+			<li><a class="active" data-toggle="tab" data-target="tab1">候诊中(<span>0</span>)</a></li>
+			<li><a data-toggle="tab" data-target="tab2">治疗中(<span>0</span>)</a></li>
+			<li><a data-toggle="tab" data-target="tab3">已完成(<span>0</span>)</a></li>
+		</ul>
+		<!-- 选项卡主体区域 -->
+		<div class="tab-cont">
+			<div id="tab1" class="active"></div>
+			<div id="tab2"></div>
+			<div id="tab3"></div>
+		</div>
+		<!-- 快速接诊 -->		
+		<div class="searchBox">
+			<a class="popup">快速接诊</a>
+			<input type="date">					
+			<p class="search"><input type="text"><a></a></p>
+		</div>
+		<div id="popBox">
+			<div class="titlebox">
+				<h5>快速接诊</h5>
+				<a class="closex"><img src="icons/close (1).png" alt=""></a>
+			</div>
+			<div class="btmbox">
+				<table>
+					<tr>
+						<td><span>*</span>患者姓名：</td>
+						<td><input type="text"></td>
+					</tr>
+					<tr>
+						<td><span>*</span>患者性别：</td>
+						<td>
+							<label><input type="radio" name="sex" value="1">男</label>
+							<label><input type="radio" name="sex" value="0">女</label>
+							<label><input type="radio" name="sex" value="3">未查</label>
+						</td>
+					</tr>
+					<tr>
+						<td>出生日期：</td>
+						<td>
+							<input type="date" name="" id="">
+							<input type="text" name="" id="">岁
+						</td>
+					</tr>
+					<tr>
+						<td>手机号码：</td>
+						<td><input type="text"></td>
+					</tr>
+					<tr>
+						<td>接诊医生：</td>
+						<td>
+							<select name="emp_id" id="">
+								<option value="1">张医生</option>
+								<option value="2">陈医生</option>
+								<option value="3">黄医生</option>
+							</select>
+						</td>
+					</tr>
+				</table>
+				<div class="btm">
+					<a class="reset">清空</a>
+					<a class="jiez">接诊</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <script>
+// 病人数据，通过查询数据库病人就诊状态获得0-待诊，1-已接诊，2-结束就诊。
+var pats1=[//待诊病人： 姓名，性别，初复诊，就诊医生，就诊时间
+		["病人张",1,0,"张医生","2019-07-23 12:23:45"]
+	];         
+var pats2=[//已接诊病人
+		["陈晓军",1,0,"张医生","2019-07-23 12:23:45"],
+		["病人陈",1,0,"白医生","2019-07-22 12:23:45"],
+		["汇锦",0,0,"张医生","2019-07-23 12:23:45"]
+	];
+var pats3=[//结束就诊病人
+		["金晶",0,0,"黄医生","2019-07-23 14:36:00"],
+		["肖英",0,0,"白医生","2019-07-24 16:45:04"]
+	];      
+// 按钮标题，不同选项卡对应不同的小按钮
+var anms1=[{"clas":"jz","txt":"接诊"}];
+var anms2=[
+		{"clas":"jxzl","txt":"继续治疗"},
+		{"clas":"wcjz","txt":"完成就诊"}
+	];
+var anms3=[{"clas":"cxjz","txt":"重新接诊"}];           
+// 封装一个公共的函数patCards-病人卡片数据,anms-<div class="patBtm">中对应的按钮内容
+function cards(pats,anms){
+	var html="";
+	var i=0;
+	for(var pat of pats){// 
+		var sex=pat[1]==1?'男':'女';
+		var cfz=pat[2]==1?'复诊':'初诊';
+		// 遍历当前循环中对应的anms数据
+		var htmxx="";
+		for(var abtn of anms){
+			var clas=abtn.clas;
+			var txt=abtn.txt;
+			htmxx +=`<a class="${clas}">${txt}</a>`;
+		}          
+		html+=`
+			<div class="patCard">
+				<div class="patHd"></div>
+					<div class="cards">
+						<div class="pName">${pat[0]}</div>
+						<div class="info"> ${sex} ${cfz} ${pat[3]}</div>
+						<div class="regDte">${pat[4]}</div>
+					</div>
+				<div class="patBtm">${htmxx}</div>
+			</div>
+		`;
+		i++;
+	}
+	return html;
+}
+$("#consultation #tab1").html(cards(pats1,anms1));
+/******************************************************** */
 // 选项卡效果
-var as=document.querySelectorAll("ul.navs>li>a");
-for(var a of as){
-    a.onclick=function(){
-        var a=this;  
-        // 如果当前元素无.active样式
-        if(a.className!="active"){
-            // 讲过其他有.active样式名的a标签去掉样式名
-            var otherA=document.querySelector("ul.navs>li>a.active");            
-            otherA.className="";
-            // 当前元素添加.active样式名
-            a.className="active";
-            // 获取data-target属性值
-            var id=a.dataset.target;            
-            // 找到其他的有active样式的div，将其样式名去掉
-            var otherId=document.querySelector(".tab-cont>div.active");                     
-            otherId.className="";
-            // 通过a标签得到的id值，取查找对应的主体div。并设置样式名为.active
-            var tabCont=document.getElementById(id);            
-            tabCont.className="active";      
-        }
-    }
-}
+$("#consultation ul.navs").on("click","a[data-toggle=tab]",function(){
+	var a=$(this); // 获取当前元素
+	var aTarget=a.attr("data-target");//获取元素的data-target属性值
+	var divBox=$(`#${aTarget}`) //，找到相同id的元素    
+	a.parent().siblings().children().removeClass("active");// 其他的a去掉active类名
+	a.addClass("active");  //当前元素添加类名active 
+	divBox.addClass("active")  // id和data-target属性值一致的元素添加类名active
+	divBox.siblings().removeClass("active");// 其他的id去掉active类名
+	// 当前选项卡内容显示后，自动去加载对应的html内容
+	if(aTarget=="tab1"){
+		divBox.html(cards(pats1,anms1));
+	}else if(aTarget=="tab2"){
+		divBox.html(cards(pats2,anms2));
+	}else{
+		divBox.html(cards(pats3,anms3));
+	} 
+})
 
-// #tab1内容加载
-// var 内容加载=document.getElementById("tab1");
-var waiting=[
-    ["病人张",1,0,"张医生","2019-07-23 12:23:45"],
-    ["病人张",1,0,"张医生","2019-07-23 12:23:45"]
-];
-var waiting2=[
-    ["病人张",1,0,"张医生","2019-07-23 12:23:45"],
-    ["病人张",1,0,"张医生","2019-07-23 12:23:45"],
-    ["病人张",1,0,"张医生","2019-07-23 12:23:45"]
-];
-// 创建文档片段
-var frag=document.createDocumentFragment();
-// 封装一个公共的函数：staus-就诊状态。patients-病人数组
-function crads(staus,patients){
-    // 遍历
-    for(var pat of patients){
-        // 每遍历一次创建一个患者名片
-        var divBox=document.createElement("div");
-        divBox.className="patCard";
-        var sex,isFirst;
-        pat[1]==1?sex="男":sex="女";
-        pat[2]==0?isFirst="初诊":isFirst="复诊";        
-        divBox.innerHTML=`
-            <div class="patHd"></div>
-            <div class="cards">
-                <div class="pName">${pat[0]}</div>
-                <div class="info">${sex} ${isFirst} ${pat[3]} </div>
-                <div class="regDte">${pat[4]}</div>
-            </div>
-        `;
-        if(staus==0){  // 待诊病人
-            // 创建一个标签a用于接诊
-            var a=document.createElement("a");
-            a.href="#";
-            a.innerHTML="接诊";
-            divBox.appendChild(a);
-        }else if(staus==1){  // 治疗中病人
-            // 创建2个标签a用于接诊
-            var a1=document.createElement("a");
-            a1.href="#";
-            a1.innerHTML="继续治疗";
-            var a2=document.createElement("a");
-            a2.href="#";
-            a2.innerHTML="完整就诊";
-            a1.style.width="40%";
-            a2.style.width="40%";
-            var p=document.createElement("p");
-            p.appendChild(a1);
-            p.appendChild(a2);
-            divBox.appendChild(p);
-
-        }
-        // 在文档片段中追加患者名片
-        frag.appendChild(divBox);
-    }
-    return frag;
-}
-
-tab1.appendChild(crads(0,waiting));
-tab2.appendChild(crads(1,waiting2));
-
+// 弹出快速接诊
+$("#consultation .popup").on("click",function(){
+	if( $("#consultation #popBox").hasClass("show")){
+		$("#consultation #popBox").removeClass("show");
+	}else{
+		$("#consultation #popBox").addClass("show");
+	}
+})
+// 关闭弹出
+$("#consultation .closex").on("click",function(){
+	$("#consultation #popBox").removeClass("show");
+})
 </script>
-</body>
-</html>

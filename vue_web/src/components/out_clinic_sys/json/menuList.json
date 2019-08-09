@@ -1,0 +1,19 @@
+{
+  "data":[
+    {"mid":"workspacing","mtitle":"工作台","imgUrl":"../../../assets/header.png"},
+    {"mid":"out_regist","mtitle":"患者登记","imgUrl":"../../../assets/header.png"},
+    {"mid":"consultation","mtitle":"今日就诊","imgUrl":"../../../assets/header.png"},
+    {"mid":"out_charges","mtitle":"收费管理","imgUrl":"../../../assets/header.png"},
+    {"mid":"out_dispensing","mtitle":"门诊发药","imgUrl":"../../../assets/header.png"},
+    {"mid":"medical_warehousing","mtitle":"库房管理","imgUrl":"../../../assets/header.png"},
+    {"mid":"out_pres_mng","mtitle":"门诊划价","imgUrl":"../../../assets/header.png"},
+    {"mid":"booking_mng","mtitle":"预约管理","imgUrl":"../../../assets/header.png"},
+    {"mid":"DD_maintenance","mtitle":"字典维护","imgUrl":"../../../assets/header.png"},
+    {"mid":"statistical","mtitle":"统计报表","imgUrl":"../../../assets/header.png"},
+    {"mid":"out_nurse_sta","mtitle":"门诊护士站","imgUrl":"../../../assets/header.png"},
+    {"mid":"consilia_mng","mtitle":"医案管理","imgUrl":"../../../assets/header.png"},
+    {"mid":"clinic_mng","mtitle":"诊所管理","imgUrl":"../../../assets/header.png"},
+    {"mid":"patient_mng","mtitle":"患者管理","imgUrl":"../../../assets/header.png"},
+    {"mid":"setting","mtitle":"基础设置","imgUrl":"../../../assets/header.png"},
+  ]
+}
